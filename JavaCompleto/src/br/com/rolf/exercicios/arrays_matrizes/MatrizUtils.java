@@ -13,7 +13,20 @@ public final class MatrizUtils {
 	
 	//métodos estáticos
 	
-	//MÉTODOS PARA MANIPULAÇÃO DOS ELEMENTOS
+	
+	public static int[] defineTamanhoMatriz(int linha, int coluna, Scanner sc) {
+		System.out.println("Digite a quantidade de linha da matriz");
+		linha = sc.nextInt();
+		sc.nextLine();
+		
+		System.out.println("Digite a quantidade de coluna da matriz");
+		coluna = sc.nextInt();
+		sc.nextLine();
+		
+		return new int[] {linha, coluna};
+	}
+	
+	//MÉTODOS PARA INSERIR ELEMENTOS
 	public static void insereNumerosSequenciais(int [][] matriz, Scanner sc)  {
 		int count = 0;
 		for (int i = 0; i < matriz.length; i++) {
@@ -22,9 +35,20 @@ public final class MatrizUtils {
 				count++;
 			}
 		}
-//		//define o intervalo. Os numeros inseridos será de 0 a 9
-//		int min = 0;
-//		int max = 9;
+		
+	}
+	
+	public static void insereNumerosAleatorios(int[][] matriz) {
+		//define o intervalo. Os numeros inseridos será de 0 a 9
+		int min = 0;
+		int max = 9;
+		
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				matriz[i][j] = (int) (Math.random() * (max - min + 1) + min);
+			}
+		}
+		
 		
 	}
 	

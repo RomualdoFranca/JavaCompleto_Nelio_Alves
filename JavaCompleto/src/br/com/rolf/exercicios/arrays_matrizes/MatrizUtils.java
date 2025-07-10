@@ -134,11 +134,22 @@ public final class MatrizUtils {
 		numeroLinha -= 1;
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
-				if (i == numeroLinha) {
-					System.out.print(matriz[numeroLinha][j] + " ");
+				
+				if (i != numeroLinha) {
+					matriz[i][j] = 0;
 					
 				}
+				System.out.print(matriz[i][j] + " ");
+				
+//				if (i == numeroLinha) {
+//					System.out.print(matriz[numeroLinha][j] + " ");
+//					
+//				}else {
+//					
+//				}
+				
 			}
+			System.out.println();
 		}
 		
 	}

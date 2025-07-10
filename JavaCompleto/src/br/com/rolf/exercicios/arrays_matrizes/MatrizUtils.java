@@ -106,6 +106,27 @@ public final class MatrizUtils {
 		}
 	}
 	
+	public static void imprimeColunas(int[][] matriz, Scanner sc) {
+		
+		System.out.println("Digite a coluna que deseja imprimir");
+		int numeroColuna = sc.nextInt();
+		sc.nextLine();
+		//converte o numero da coluna em índice
+		//Exemplo: se for digitado coluna 1, o indice da coluna é o 0
+		numeroColuna -= 1;
+		
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				if (j == numeroColuna) {
+					System.out.print(matriz[i][numeroColuna] + " ");
+					
+				}
+			}
+			System.out.println();
+		}
+		
+	}
+	
 	public static void iteraElementos(int[][] matriz) {
 		
 		for (int i = 0; i < matriz.length; i++) {

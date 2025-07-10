@@ -46,7 +46,9 @@ public class Matriz01 {
 		MatrizUtils.insereNumerosAleatorios(matriz02);
 		MatrizUtils.imprimeSaida(matriz02);
 		
-		MatrizUtils.imprimeDiagonais(matriz02, sc);
+//		MatrizUtils.imprimeDiagonais(matriz02, sc);
+		
+		MatrizUtils.imprimeColunas(matriz02, sc);
 		
 		sc.close();
 	}

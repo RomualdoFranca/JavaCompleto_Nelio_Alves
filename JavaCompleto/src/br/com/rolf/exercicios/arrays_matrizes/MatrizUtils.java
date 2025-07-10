@@ -127,6 +127,22 @@ public final class MatrizUtils {
 		
 	}
 	
+	public static void imprimeLinhas(int[][] matriz, Scanner sc) {
+		System.out.println("Digite a linha que deseja imprimir");
+		int numeroLinha = sc.nextInt();
+		sc.nextLine();
+		numeroLinha -= 1;
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				if (i == numeroLinha) {
+					System.out.print(matriz[numeroLinha][j] + " ");
+					
+				}
+			}
+		}
+		
+	}
+	
 	public static void iteraElementos(int[][] matriz) {
 		
 		for (int i = 0; i < matriz.length; i++) {

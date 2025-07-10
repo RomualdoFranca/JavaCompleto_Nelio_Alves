@@ -50,6 +50,8 @@ public class Matriz01 {
 		
 		MatrizUtils.imprimeColunas(matriz02, sc);
 		
+		MatrizUtils.imprimeLinhas(matriz02, sc);
+		
 		sc.close();
 	}
 

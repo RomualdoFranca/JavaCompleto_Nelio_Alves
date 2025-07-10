@@ -1,20 +1,24 @@
 package br.com.rolf.experimentos.temporarios;
 
+import java.util.Scanner;
+
+import br.com.rolf.exercicios.arrays_matrizes.MatrizUtils;
+
 public class TesteManipulacaoStrings {
 
 	public static void main(String[] args) {
 
+		Scanner sc = new Scanner(System.in);
 		
-		String nome = "" + "Rolf";
+		int linha = 0;
+		int coluna = 0;
+		int[] linhaColuna = MatrizUtils.defineTamanhoMatriz(linha, coluna, sc);
 		
-		for (int i = 0; i < 10; i++) {
-			String comEspacos = nome.replace("", " ");
-			System.out.println(comEspacos);
-		}
+		int[][] m = new int[linhaColuna[0]][linhaColuna[1]];
+		MatrizUtils.insereNumerosAleatorios(m);
+		MatrizUtils.imprimeSaida(m);
 		
-		for (int i = 0; i < 10; i++) {
-//			System.out.println(espaco + nome);
-		}
+		sc.close();
 		
 	}
 

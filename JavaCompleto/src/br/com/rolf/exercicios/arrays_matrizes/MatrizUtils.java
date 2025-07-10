@@ -72,8 +72,8 @@ public final class MatrizUtils {
 	public static void imprimeDiagonais(int[][] matriz, Scanner sc ) {
 		
 		System.out.println("Escolha a diagonal para ser impressa:");
-		System.out.println("Diaogonal principal: 1");
-		System.out.println("Diaogonal secundária: 2");
+		System.out.println("Diagonal principal: 1");
+		System.out.println("Diagonal secundária: 2");
 		int opcao = sc.nextInt();
 		sc.nextLine();
 		
@@ -81,23 +81,29 @@ public final class MatrizUtils {
 		if (opcao == 1) {
 			
 			System.out.println("Diagonal Principal");
-			String spaco = "";//armazena o espaço para ser acrescentado na formatacao
 			
 			for (int i = 0; i < matriz.length; i++) {
 				for (int j = 0; j < matriz[i].length; j++) {
 					
 					if (i == j) {
-						System.out.print(spaco + matriz[i][j] + " ");
-						//a cada loop acresenta 2 espaços antes do numero
-						spaco += "  ";
+						System.out.print(matriz[i][j] + " ");
 					}
 				}
 				System.out.println();
 			}
+		}else {
+			System.out.println("Diagonal Secundária");
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz[i].length; j++) {
+					
+					if (i + j == matriz.length - 1 ) {
+						System.out.print(matriz[i][j] + " ");
+					}
+				}
+				
+				System.out.println();
+			}
 		}
-		
-		
-		
 	}
 	
 	public static void iteraElementos(int[][] matriz) {

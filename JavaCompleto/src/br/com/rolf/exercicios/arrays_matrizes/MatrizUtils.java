@@ -65,6 +65,26 @@ public final class MatrizUtils {
 		}
 		System.out.println("-------------");
 	}
+	//(int[][] matriz,int linha, int coluna ,Scanner sc)
+	public static void converteMatrizString(int[][] matriz) {
+//		linha = 0;
+//		coluna = 0;
+		String[][] numerosEmString = new String[matriz.length][];
+		
+		for (int i = 0; i < numerosEmString.length; i++) {
+			numerosEmString[i] = new String[matriz.length];
+			for (int j = 0; j < matriz[i].length; j++) {
+				numerosEmString[i][j] = String.valueOf(matriz[i][j]);
+//				System.out.print(numerosEmString[i][j] + " ");
+			}
+//			System.out.println();
+		}
+		
+		if(numerosEmString instanceof String[][]) {
+			System.out.println("Matriz foi convertida");
+		}
+		
+	}
 	
 	//METODOS PARA IMPRIMIR TRECHOS ESPECIFICOS DA MATRIZ
 	
@@ -135,19 +155,19 @@ public final class MatrizUtils {
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
 				
-				if (i != numeroLinha) {
-					matriz[i][j] = 0;
+				
+				if (i == numeroLinha) {
+					System.out.print(matriz[numeroLinha][j] + " ");
 					
 				}
-				System.out.print(matriz[i][j] + " ");
 				
-//				if (i == numeroLinha) {
-//					System.out.print(matriz[numeroLinha][j] + " ");
-//					
-//				}else {
+				//essa condicional converte os valores das outras linhas em zero,
+				//matendo apenas os numeros da linha escolhida
+//				if (i != numeroLinha) {
+//					matriz[i][j] = 0;
 //					
 //				}
-				
+//				System.out.print(matriz[i][j] + " ");
 			}
 			System.out.println();
 		}

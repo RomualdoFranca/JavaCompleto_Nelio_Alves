@@ -18,7 +18,12 @@ public class TesteManipulacaoStrings {
 		MatrizUtils.insereNumerosAleatorios(m);
 		MatrizUtils.imprimeSaida(m);
 		
-		MatrizUtils.imprimeLinhas(m, sc);
+//		MatrizUtils.imprimeLinhas(m, sc);
+		
+		MatrizUtils.converteMatrizString(m);
+		
+//		MatrizUtils.imprimeSaida(m);
+		
 		
 		sc.close();
 		

@@ -43,6 +43,11 @@ public class Matriz01 {
 		MatrizUtils.insereNumerosSequenciais(matriz02, sc);
 		MatrizUtils.imprimeSaida(matriz02);
 		
+		MatrizUtils.insereNumerosAleatorios(matriz02);
+		MatrizUtils.imprimeSaida(matriz02);
+		
+		MatrizUtils.imprimeDiagonais(matriz02, sc);
+		
 		sc.close();
 	}
 

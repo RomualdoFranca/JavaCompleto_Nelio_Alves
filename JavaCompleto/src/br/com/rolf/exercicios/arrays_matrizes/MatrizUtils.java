@@ -1,5 +1,6 @@
 package br.com.rolf.exercicios.arrays_matrizes;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 // classe declarada como final para impedir que seja extendida
@@ -65,7 +66,48 @@ public final class MatrizUtils {
 		System.out.println("-------------");
 	}
 	
+	//METODOS PARA IMPRIMIR TRECHOS ESPECIFICOS DA MATRIZ
 	
+	
+	public static void imprimeDiagonais(int[][] matriz, Scanner sc ) {
+		
+		System.out.println("Escolha a diagonal para ser impressa:");
+		System.out.println("Diaogonal principal: 1");
+		System.out.println("Diaogonal secundária: 2");
+		int opcao = sc.nextInt();
+		sc.nextLine();
+		
+		
+		if (opcao == 1) {
+			
+			System.out.println("Diagonal Principal");
+			String spaco = "";//armazena o espaço para ser acrescentado na formatacao
+			
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz[i].length; j++) {
+					
+					if (i == j) {
+						System.out.print(spaco + matriz[i][j] + " ");
+						//a cada loop acresenta 2 espaços antes do numero
+						spaco += "  ";
+					}
+				}
+				System.out.println();
+			}
+		}
+		
+		
+		
+	}
+	
+	public static void iteraElementos(int[][] matriz) {
+		
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+//				matriz[i][j];
+			}
+		}
+	}
 	
 	
 }

@@ -29,6 +29,9 @@ public class Matriz01 {
 			System.out.println();
 		}
 		
+		int[][] matriz02 = new int[4][4];
+		MatrizUtils.insereNumerosSequenciais(matriz02, sc);
+		MatrizUtils.imprimeSaida(matriz02);
 		
 		sc.close();
 	}

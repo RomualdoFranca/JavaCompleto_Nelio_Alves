@@ -25,9 +25,28 @@ public class TesteManipulacaoStrings {
 		
 //		MatrizUtils.imprimeSaida(m);
 		
-		int[][] matrizTeste = criaMatriz(linha, coluna, sc);
-		System.out.println(matrizTeste.length);
+//		int[][] matrizTeste = criaMatrizRetangular(linha, coluna, sc);
+//		System.out.println(matrizTeste.length);
+//		MatrizUtils.imprimeSaida(matrizTeste);
 		
+		//implementa uma matriz denteada
+//		int[][] matrizDenteada = new int[defineQuantidadeLinha(linha, sc)][];
+//		for (int i = 0; i < matrizDenteada.length; i++) {
+//			matrizDenteada[i] = new int[defineQuantidadeColunas(coluna, sc)];
+//		}
+		
+		System.out.println("implementa uma matriz denteada com método");
+		int[][] denteada = criaMatrizDeMatriz(linha, sc);
+		
+		
+//		for (int i = 0; i < matrizDenteada.length; i++) {
+//			coluna = defineQuantidadeColunas(coluna, sc);
+//			for (coluna = 0; coluna < matrizDenteada[i].length; coluna++) {
+//				System.out.println(matrizDenteada[i][coluna] + " "); 
+//			}
+//			System.out.println();
+//		}
+		MatrizUtils.imprimeSaida(denteada);
 		
 		sc.close();
 		
@@ -54,12 +73,7 @@ public class TesteManipulacaoStrings {
 		
 	}
 	
-	public static int[][] criaMatriz(int linha,int coluna, Scanner sc) {
-		linha = defineQuantidadeLinha(linha, sc);
-		coluna = defineQuantidadeColunas(coluna, sc);
-		
-		return new int[linha][coluna];
-	}
+	//MÉTODOS PARA CRIAÇÃO DE MATRIZES
 	
 	public static int defineQuantidadeLinha(int linha, Scanner sc) {
 		System.out.println("Digite a quantidade de linha da matriz");
@@ -77,6 +91,33 @@ public class TesteManipulacaoStrings {
 		
 		return coluna;
 	}
+	
+	public static int[][] criaMatrizRetangular(int linha,int coluna, Scanner sc) {
+		linha = defineQuantidadeLinha(linha, sc);
+		coluna = defineQuantidadeColunas(coluna, sc);
+		
+		return new int[linha][coluna];
+	}
+	
+	
+//	int[][] matrizDenteada = new int[defineQuantidadeLinha(linha, sc)][];
+//	for (int i = 0; i < matrizDenteada.length; i++) {
+//		matrizDenteada[i] = new int[defineQuantidadeColunas(coluna, sc)];
+//	}
+	
+	public static int[][] criaMatrizDeMatriz(int linha , Scanner sc) {
+		linha = defineQuantidadeLinha(linha, sc);
+		int[][] m = new int[linha][];
+		
+		for (int i = 0; i < m.length; i++) {
+			//inicializa linha
+			m[i] = new int[defineQuantidadeColunas(i, sc)];
+		}
+		
+		return m;
+	}
+	
+	
 	
 //	public static void preencheMatriz(int[][]matriz, int coluna, Scanner sc) {
 //		int linha = defineTamanhoMatriz(linha, sc);

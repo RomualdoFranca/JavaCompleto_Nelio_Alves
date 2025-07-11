@@ -36,23 +36,23 @@ public class Matriz01 {
 		int coluna = 0;
 		
 		//chamando o metodo que define o tamanho da matriz e atribuindo a uma array local
-		int[] vectLinhaColuna = MatrizUtils.defineTamanhoMatriz(linha, coluna, sc);
+//		int[] vectLinhaColuna = MatrizUtils.defineTamanhoMatriz(linha, coluna, sc);
 
 		//inserindo os valores do método, que foram atribuidos as posicoes do vetor, na matriz para definir seu tamanho
-		int[][] matriz02 = new int[vectLinhaColuna[0]][vectLinhaColuna[1]];
+//		int[][] matriz02 = new int[vectLinhaColuna[0]][vectLinhaColuna[1]];
 //		MatrizUtils.insereNumerosSequenciais(matriz02, sc);
 //		MatrizUtils.imprimeSaida(matriz02);
 		
-		MatrizUtils.insereNumerosAleatorios(matriz02);
-		
-		MatrizUtils.imprimeSaida(matriz02);
-		
-		
-		
-		boolean temNumero = false;
-
-		int frequenciaNumerica = MatrizUtils.contaFrequenciaNumero(matriz02, sc);
-		System.out.println(frequenciaNumerica);
+//		MatrizUtils.insereNumerosAleatorios(matriz02);
+//		
+//		MatrizUtils.imprimeSaida(matriz02);
+//		
+//		
+//		
+//		boolean temNumero = false;
+//
+//		int frequenciaNumerica = MatrizUtils.contaFrequenciaNumero(matriz02, sc);
+//		System.out.println(frequenciaNumerica);
 		
 		
 //		MatrizUtils.imprimeDiagonais(matriz02, sc);
@@ -60,6 +60,11 @@ public class Matriz01 {
 //		MatrizUtils.imprimeColunas(matriz02, sc);
 //		
 //		MatrizUtils.imprimeLinhas(matriz02, sc);
+		
+		
+		
+		
+		
 //		
 		sc.close();
 	}

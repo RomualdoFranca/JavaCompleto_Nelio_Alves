@@ -12,20 +12,46 @@ public final class MatrizUtils {
 		
 	}
 	
-	//métodos estáticos
+	//**************MÉTODOS ESTÁTICOS*****************//
 	
 	
-	public static int[] defineTamanhoMatriz(int linha, int coluna, Scanner sc) {
+	//MÉTODOS PARA CRIAÇÃO DE MATRIZES//
+	
+	public static int defineQuantidadeLinhas(Scanner sc) {
 		System.out.println("Digite a quantidade de linha da matriz");
-		linha = sc.nextInt();
+		int linha = sc.nextInt();
 		sc.nextLine();
-		
-		System.out.println("Digite a quantidade de coluna da matriz");
-		coluna = sc.nextInt();
-		sc.nextLine();
-		
-		return new int[] {linha, coluna};
+		return linha;
 	}
+	
+	public static int defineQuantidadeColunas(Scanner sc) {
+		System.out.println("Digite a quantidade de coluna da matriz");
+		int coluna = sc.nextInt();
+		sc.nextLine();
+		
+		return coluna;
+	}
+	
+	public static int[][] criaMatrizRetangular(Scanner sc) {
+		int linha = defineQuantidadeLinhas(sc);
+		int coluna = defineQuantidadeColunas(sc);
+		
+		return new int [linha][coluna];
+	}
+
+	
+	public static int[][] criaMatrizDenteada(Scanner sc) {
+
+		int[][] m = new int [defineQuantidadeLinhas(sc)][];
+		
+		for (int i = 0; i < m.length; i++) {
+			//inicializa as linhas de 'm'
+			m[i] = new int[defineQuantidadeColunas(sc)];
+		}
+		
+		return m;
+	}
+	
 	
 	//MÉTODOS PARA INSERIR ELEMENTOS
 	public static void insereNumerosSequenciais(int [][] matriz, Scanner sc)  {

@@ -212,9 +212,9 @@ public final class MatrizUtils {
 				for (int j = 0; j < matriz[i].length; j++) {
 					
 					if (matriz[i][j] == num) {
-						count++;
 						return count;
 					}
+					count++;
 				}
 			}
 		}

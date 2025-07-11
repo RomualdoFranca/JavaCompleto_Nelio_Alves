@@ -12,18 +12,21 @@ public class TesteManipulacaoStrings {
 		
 		int linha = 0;
 		int coluna = 0;
-		int[] linhaColuna = MatrizUtils.defineTamanhoMatriz(linha, coluna, sc);
-		
-		int[][] m = new int[linhaColuna[0]][linhaColuna[1]];
-		MatrizUtils.insereNumerosAleatorios(m);
-		MatrizUtils.imprimeSaida(m);
+//		int[] linhaColuna = MatrizUtils.defineTamanhoMatriz(linha, coluna, sc);
+//		
+//		int[][] m = new int[linhaColuna[0]][linhaColuna[1]];
+//		MatrizUtils.insereNumerosAleatorios(m);
+//		MatrizUtils.imprimeSaida(m);
 		
 //		MatrizUtils.imprimeLinhas(m, sc);
 		
-		int[][] m2 = new int[linhaColuna[0]][linhaColuna[1]];
-		MatrizUtils.converteMatrizString(m2);
+//		int[][] m2 = new int[linhaColuna[0]][linhaColuna[1]];
+//		MatrizUtils.converteMatrizString(m2);
 		
 //		MatrizUtils.imprimeSaida(m);
+		
+		int[][] matrizTeste = criaMatriz(linha, coluna, sc);
+		System.out.println(matrizTeste.length);
 		
 		
 		sc.close();
@@ -47,6 +50,65 @@ public class TesteManipulacaoStrings {
 				System.out.print(matriz[i][j] + " ");
 			}
 			System.out.println();
+		}
+		
+	}
+	
+	public static int[][] criaMatriz(int linha,int coluna, Scanner sc) {
+		linha = defineQuantidadeLinha(linha, sc);
+		coluna = defineQuantidadeColunas(coluna, sc);
+		
+		return new int[linha][coluna];
+	}
+	
+	public static int defineQuantidadeLinha(int linha, Scanner sc) {
+		System.out.println("Digite a quantidade de linha da matriz");
+		linha = sc.nextInt();
+		sc.nextLine();
+		
+		
+		return linha;
+	}
+	public static int defineQuantidadeColunas(int coluna, Scanner sc) {
+		System.out.println("Digite a quantidade de coluna da matriz");
+		coluna = sc.nextInt();
+		sc.nextLine();
+		
+		
+		return coluna;
+	}
+	
+//	public static void preencheMatriz(int[][]matriz, int coluna, Scanner sc) {
+//		int linha = defineTamanhoMatriz(linha, sc);
+//		
+//		int count = 1;
+//		for (int i = 0; i < matriz.length; i++) {
+//			
+//			System.out.println("Digite a quantidade de coluna da matriz");
+//			coluna = sc.nextInt();
+//			sc.nextLine();
+//			for (int j = 0; j < matriz.length; j++) {
+//				
+//			}
+//			
+//			
+//		}
+//	}
+	
+	private static int defineTamanhoMatriz(int linha, Scanner sc) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	//a quantidade de colunas deve ser definidos nos métodos para inserir valores 
+	public static void insereNumerosSequenciais(int [][] matriz, Scanner sc)  {
+		int count = 0;
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				matriz[i][j] = count;
+				count++;
+			}
 		}
 		
 	}

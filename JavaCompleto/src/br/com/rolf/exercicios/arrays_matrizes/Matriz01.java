@@ -50,21 +50,17 @@ public class Matriz01 {
 		
 		
 		boolean temNumero = false;
-		MatrizUtils.iteraElementos(matriz02, sc);
-		
-//		if (temNumero == true) {
-//			System.out.println("Número econtrado");
-//		}else {
-//			System.out.println("Número não econtrado");
-//		}
+
+		int frequenciaNumerica = MatrizUtils.contaFrequenciaNumero(matriz02, sc);
+		System.out.println(frequenciaNumerica);
 		
 		
 //		MatrizUtils.imprimeDiagonais(matriz02, sc);
 		
-		MatrizUtils.imprimeColunas(matriz02, sc);
-		
-		MatrizUtils.imprimeLinhas(matriz02, sc);
-		
+//		MatrizUtils.imprimeColunas(matriz02, sc);
+//		
+//		MatrizUtils.imprimeLinhas(matriz02, sc);
+//		
 		sc.close();
 	}
 

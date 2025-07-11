@@ -177,46 +177,69 @@ public final class MatrizUtils {
 	
 	// MÉTODOS PARA PESQUISA DE VALORES
 	
-	public static boolean pesquisaExistenciaNumero(boolean hasNumero, int[][] matriz, Scanner sc) {
+	public static boolean pesquisaExistenciaNumero(int num, boolean hasNumero, int[][] matriz, Scanner sc) {
 		
-		System.out.println("Digite o número para ser pesquisado:");
-		int num = sc.nextInt();
-		sc.nextLine();
-		
+//		System.out.println("Digite o número para ser pesquisado:");
+//		num = sc.nextInt();
+//		sc.nextLine();
+
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
 				
 				if (matriz[i][j] == num) {
 					return hasNumero = true;
 				}
-				break;
+
 			}
 		}
 		return hasNumero = false;
 		
 		
 		
-		
 	}
 	
-	public static void iteraElementos(int[][] matriz, Scanner sc) {
+	public static int contaFrequenciaNumero(int[][] matriz, Scanner sc) {
+
+		System.out.println("Digite o número para ser pesquisado:");
+		int num = sc.nextInt();
+		sc.nextLine();
 		
-		if (pesquisaExistenciaNumero(false, matriz, sc) == true) {
+		int count = 0;
+		
+		if (pesquisaExistenciaNumero(num, false, matriz, sc) == true) {
 			
-			System.out.println("Número encontrado");
-			
-		}else {
-			System.out.printf("Número não foi encontrado");
-			
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz[i].length; j++) {
+					
+					if (matriz[i][j] == num) {
+						count++;
+						return count;
+					}
+				}
+			}
 		}
 		
-//		for (int i = 0; i < matriz.length; i++) {
-//			for (int j = 0; j < matriz[i].length; j++) {
-//
-//			
-//			}
-//		}
+		return count;
 	}
+	
+//	public static void iteraElementos(int[][] matriz, Scanner sc) {
+//		
+//		if (pesquisaExistenciaNumero(false, matriz, sc) == true) {
+//			
+//			System.out.println("Número encontrado");
+//			for (int i = 0; i < matriz.length; i++) {
+//				for (int j = 0; j < matriz[i].length; j++) {
+//					
+//					
+//				}
+//			}
+//			
+//		}else {
+//			System.out.println("Número não foi encontrado");
+//			
+//		}
+//		
+//	}
 	
 	
 }

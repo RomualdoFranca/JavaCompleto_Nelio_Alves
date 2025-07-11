@@ -177,9 +177,9 @@ public final class MatrizUtils {
 	
 	// MÉTODOS PARA PESQUISA DE VALORES
 	
-	public static boolean pesquisaNumero(int[][] matriz, Scanner sc) {
+	public static boolean pesquisaExistenciaNumero(boolean hasNumero, int[][] matriz, Scanner sc) {
 		
-		System.out.println("Digite o número par ser pesquisado:");
+		System.out.println("Digite o número para ser pesquisado:");
 		int num = sc.nextInt();
 		sc.nextLine();
 		
@@ -187,27 +187,35 @@ public final class MatrizUtils {
 			for (int j = 0; j < matriz[i].length; j++) {
 				
 				if (matriz[i][j] == num) {
-					System.out.println(num);
-					return true;
+					return hasNumero = true;
 				}
 				break;
 			}
 		}
-		return false;
+		return hasNumero = false;
 		
 		
 		
 		
 	}
 	
-	public static void iteraElementos(int[][] matriz) {
+	public static void iteraElementos(int[][] matriz, Scanner sc) {
 		
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[i].length; j++) {
-
+		if (pesquisaExistenciaNumero(false, matriz, sc) == true) {
 			
-			}
+			System.out.println("Número encontrado");
+			
+		}else {
+			System.out.printf("Número não foi encontrado");
+			
 		}
+		
+//		for (int i = 0; i < matriz.length; i++) {
+//			for (int j = 0; j < matriz[i].length; j++) {
+//
+//			
+//			}
+//		}
 	}
 	
 	

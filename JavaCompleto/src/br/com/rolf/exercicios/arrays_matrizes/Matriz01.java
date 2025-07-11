@@ -49,13 +49,14 @@ public class Matriz01 {
 		
 		
 		
-		boolean temNumero = MatrizUtils.pesquisaNumero(matriz02, sc);
+		boolean temNumero = false;
+		MatrizUtils.iteraElementos(matriz02, sc);
 		
-		if (temNumero == true) {
-			System.out.println("Número econtrado");
-		}else {
-			System.out.println("Número não econtrado");
-		}
+//		if (temNumero == true) {
+//			System.out.println("Número econtrado");
+//		}else {
+//			System.out.println("Número não econtrado");
+//		}
 		
 		
 //		MatrizUtils.imprimeDiagonais(matriz02, sc);

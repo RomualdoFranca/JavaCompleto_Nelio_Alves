@@ -20,12 +20,34 @@ public class TesteManipulacaoStrings {
 		
 //		MatrizUtils.imprimeLinhas(m, sc);
 		
-		MatrizUtils.converteMatrizString(m);
+		int[][] m2 = new int[linhaColuna[0]][linhaColuna[1]];
+		MatrizUtils.converteMatrizString(m2);
 		
 //		MatrizUtils.imprimeSaida(m);
 		
 		
 		sc.close();
+		
+	}
+	
+	
+	public static void imprimeLinhas(int[][] matriz, Scanner sc) {
+		System.out.println("Digite a linha que deseja imprimir");
+		int numeroLinha = sc.nextInt();
+		sc.nextLine();
+		numeroLinha -= 1;
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+//				essa condicional converte os valores das outras linhas em zero,
+//				matendo apenas os numeros da linha escolhida
+				if (i != numeroLinha) {
+					matriz[i][j] = 0;
+					
+				}
+				System.out.print(matriz[i][j] + " ");
+			}
+			System.out.println();
+		}
 		
 	}
 

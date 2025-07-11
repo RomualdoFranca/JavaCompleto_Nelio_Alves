@@ -40,11 +40,23 @@ public class Matriz01 {
 
 		//inserindo os valores do método, que foram atribuidos as posicoes do vetor, na matriz para definir seu tamanho
 		int[][] matriz02 = new int[vectLinhaColuna[0]][vectLinhaColuna[1]];
-		MatrizUtils.insereNumerosSequenciais(matriz02, sc);
-		MatrizUtils.imprimeSaida(matriz02);
+//		MatrizUtils.insereNumerosSequenciais(matriz02, sc);
+//		MatrizUtils.imprimeSaida(matriz02);
 		
 		MatrizUtils.insereNumerosAleatorios(matriz02);
+		
 		MatrizUtils.imprimeSaida(matriz02);
+		
+		
+		
+		boolean temNumero = MatrizUtils.pesquisaNumero(matriz02, sc);
+		
+		if (temNumero == true) {
+			System.out.println("Número econtrado");
+		}else {
+			System.out.println("Número não econtrado");
+		}
+		
 		
 //		MatrizUtils.imprimeDiagonais(matriz02, sc);
 		

@@ -79,6 +79,39 @@ public final class MatrizUtils {
 		
 	}
 	
+	//MÁTODOS PARA BUSCAR ELEMENTOS ESPECÍFICOS DAS MATRIZES
+	
+	public static boolean temNumeroPar(int[][] matriz, Scanner sc) {
+		
+//		int[] numeroPar = new int[matriz.length];
+		
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				
+				if (matriz[i][j] % 2 == 0) {
+						return true;
+					
+//					for (int j2 = 0; j2 < numeroPar.length; j2++) {
+//						numeroPar[j2] = matriz[i][j];
+//						
+//					}
+				}
+			}
+		}
+		return false;
+	}
+	
+	public static void iteraSobreVetor(int[] vect) {
+		for (int i : vect) {
+			System.out.print(i + " ");
+		}
+	}
+	
+	public static void buscaNumeroImpar(int[][] matriz, Scanner sc) {
+		
+	}
+	
+	
 	//METODOS PARA FORMATAÇÃO DE SAÍDA
 	public static void imprimeSaida(int[][] matriz) {
 		System.out.println("-------------");
@@ -91,26 +124,7 @@ public final class MatrizUtils {
 		}
 		System.out.println("-------------");
 	}
-	//(int[][] matriz,int linha, int coluna ,Scanner sc)
-	public static void converteMatrizString(int[][] matriz) {
-//		linha = 0;
-//		coluna = 0;
-		String[][] numerosEmString = new String[matriz.length][];
-		
-		for (int i = 0; i < numerosEmString.length; i++) {
-			numerosEmString[i] = new String[matriz.length];
-			for (int j = 0; j < matriz[i].length; j++) {
-				numerosEmString[i][j] = String.valueOf(matriz[i][j]);
-//				System.out.print(numerosEmString[i][j] + " ");
-			}
-//			System.out.println();
-		}
-		
-		if(numerosEmString instanceof String[][]) {
-			System.out.println("Matriz foi convertida");
-		}
-		
-	}
+	
 	
 	//METODOS PARA IMPRIMIR TRECHOS ESPECIFICOS DA MATRIZ
 	
@@ -247,25 +261,4 @@ public final class MatrizUtils {
 		
 		return count;
 	}
-	
-//	public static void iteraElementos(int[][] matriz, Scanner sc) {
-//		
-//		if (pesquisaExistenciaNumero(false, matriz, sc) == true) {
-//			
-//			System.out.println("Número encontrado");
-//			for (int i = 0; i < matriz.length; i++) {
-//				for (int j = 0; j < matriz[i].length; j++) {
-//					
-//					
-//				}
-//			}
-//			
-//		}else {
-//			System.out.println("Número não foi encontrado");
-//			
-//		}
-//		
-//	}
-	
-	
 }

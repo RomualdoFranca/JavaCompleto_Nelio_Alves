@@ -17,6 +17,11 @@ public final class MatrizUtils {
 	
 	//MÉTODOS PARA CRIAÇÃO DE MATRIZES//
 	
+	public static int[] criaVetor(int tamanhoVetor) {
+		int[] vect = new int[tamanhoVetor];
+		return vect;
+	}
+	
 	public static int defineQuantidadeLinhas(Scanner sc) {
 		System.out.println("Digite a quantidade de linha da matriz");
 		int linha = sc.nextInt();
@@ -81,30 +86,36 @@ public final class MatrizUtils {
 	
 	//MÁTODOS PARA BUSCAR ELEMENTOS ESPECÍFICOS DAS MATRIZES
 	
-	public static boolean temNumeroPar(int[][] matriz, Scanner sc) {
-		
-//		int[] numeroPar = new int[matriz.length];
+	public static boolean temNumeroPar(int[][] matriz) {
 		
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
 				
 				if (matriz[i][j] % 2 == 0) {
 						return true;
-					
-//					for (int j2 = 0; j2 < numeroPar.length; j2++) {
-//						numeroPar[j2] = matriz[i][j];
-//						
-//					}
 				}
 			}
 		}
 		return false;
 	}
 	
-	public static void iteraSobreVetor(int[] vect) {
-		for (int i : vect) {
-			System.out.print(i + " ");
+	public static int[] adicionaNumerosParesVetor(int[][] matriz) {
+		boolean temPar = temNumeroPar(matriz);
+		int[] vect = criaVetor(matriz.length);
+		
+		if (temPar == true) {
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz[i].length; j++) {
+					if(matriz[i][j] % 2 == 0) {
+						vect[i] = matriz[i][j];
+						
+					}
+				}
+			}
 		}
+		
+		return vect;
+
 	}
 	
 	public static void buscaNumeroImpar(int[][] matriz, Scanner sc) {

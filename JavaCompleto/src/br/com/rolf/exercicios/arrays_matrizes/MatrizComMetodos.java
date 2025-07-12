@@ -12,7 +12,12 @@ public class MatrizComMetodos {
 		MatrizUtils.insereNumerosAleatorios(matriz01);
 		MatrizUtils.imprimeSaida(matriz01);
 		
-		System.out.println(MatrizUtils.temNumeroPar(matriz01, sc));
+//		System.out.println(MatrizUtils.temNumeroPar(matriz01));
+		int[] vectNumeroPar = MatrizUtils.adicionaNumerosParesVetor(matriz01);
+		for (int i = 0; i < vectNumeroPar.length; i++) {
+			System.out.print(vectNumeroPar[i] + " ");
+		}
+		
 
 //		int[] vect = MatrizUtils.temNumeroPar(matriz01, sc);
 //		MatrizUtils.iteraSobreVetor(vect);

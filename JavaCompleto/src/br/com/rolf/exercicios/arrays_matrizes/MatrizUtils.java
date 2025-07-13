@@ -93,15 +93,22 @@ public final class MatrizUtils {
 		int num = sc.nextInt();
 		sc.nextLine();
 		int[] vect = new int[2];
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[i].length; j++) {
-				if (matriz[i][j] == num) {
-					vect[0] = i;
-					vect[1] = j;
+		
+		boolean temNumero = verificaExistenciaNumero(num, false, matriz);
+		if (temNumero == true) {
+			
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz[i].length; j++) {
+					if (matriz[i][j] == num) {
+						vect[0] = i;
+						vect[1] = j;
+						return vect;
+					}
 				}
 			}
+		}else {
+			System.out.println("Número inexistente");
 		}
-		
 		return vect;
 	}
 
@@ -250,7 +257,7 @@ public final class MatrizUtils {
 	
 	// MÉTODOS PARA PESQUISA DE VALORES
 	
-	public static boolean pesquisaExistenciaNumero(int num, boolean hasNumero, int[][] matriz) {
+	public static boolean verificaExistenciaNumero(int num, boolean hasNumero, int[][] matriz) {
 
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
@@ -271,15 +278,14 @@ public final class MatrizUtils {
 		
 		int count = 0;
 		
-		if (pesquisaExistenciaNumero(num, false, matriz) == true) {
+		if (verificaExistenciaNumero(num, false, matriz) == true) {
 			
 			for (int i = 0; i < matriz.length; i++) {
 				for (int j = 0; j < matriz[i].length; j++) {
 					
 					if (matriz[i][j] == num) {
-						return count;
+						return count++;
 					}
-					count++;
 				}
 			}
 		}

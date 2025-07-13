@@ -84,7 +84,29 @@ public final class MatrizUtils {
 		
 	}
 	
-	//MÁTODOS PARA BUSCAR ELEMENTOS ESPECÍFICOS DAS MATRIZES
+	//MÁTODOS PARA PESQUISAS 
+	
+	
+	
+	public static int[] retornaIndices(int[][] matriz, Scanner sc) {
+		System.out.println("Digite numero");
+		int num = sc.nextInt();
+		sc.nextLine();
+		int[] vect = new int[2];
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				if (matriz[i][j] == num) {
+					vect[0] = i;
+					vect[1] = j;
+				}
+			}
+		}
+		
+		return vect;
+	}
+
+	
+	
 	
 	public static boolean temNumeroPar(int[][] matriz) {
 		
@@ -228,11 +250,7 @@ public final class MatrizUtils {
 	
 	// MÉTODOS PARA PESQUISA DE VALORES
 	
-	public static boolean pesquisaExistenciaNumero(int num, boolean hasNumero, int[][] matriz, Scanner sc) {
-		
-//		System.out.println("Digite o número para ser pesquisado:");
-//		num = sc.nextInt();
-//		sc.nextLine();
+	public static boolean pesquisaExistenciaNumero(int num, boolean hasNumero, int[][] matriz) {
 
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
@@ -240,13 +258,9 @@ public final class MatrizUtils {
 				if (matriz[i][j] == num) {
 					return hasNumero = true;
 				}
-
 			}
 		}
 		return hasNumero = false;
-		
-		
-		
 	}
 	
 	public static int contaFrequenciaNumero(int[][] matriz, Scanner sc) {
@@ -257,7 +271,7 @@ public final class MatrizUtils {
 		
 		int count = 0;
 		
-		if (pesquisaExistenciaNumero(num, false, matriz, sc) == true) {
+		if (pesquisaExistenciaNumero(num, false, matriz) == true) {
 			
 			for (int i = 0; i < matriz.length; i++) {
 				for (int j = 0; j < matriz[i].length; j++) {

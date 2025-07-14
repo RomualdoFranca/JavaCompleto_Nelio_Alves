@@ -1,0 +1,83 @@
+
+
+metodo que receba a posicao do numero e selecione o metodo especifico para encontrar os numeros
+contiguos do numero pesquisado
+
+Se a linha = 0;
+Temos 3 possibilidades de posições:
+	
+	vértice E;
+	vértice D;
+	entre os vértices
+	
+1 -	O número estará no vértice E, se coluna = 0
+2 -	O número estará no vértice D, se coluna = (.lenght - 1)
+3 -	O número estará entre os vértices E e D, se coluna > 0 e < (.lenght - 1)
+
+*****************************************************************************
+METODOS DO TOPO
+
+Método para verificar a regiao da matriz onde o numero se localiza para escolha do método adequado
+
+Verificar se estar:
+No topo
+Na base
+Fora das extremidades
+
+
+*******************************************************
+if(linha == 0) {
+	
+	switch (coluna) {
+    case 0:
+        // Código a ser executado se expressao for igual a valor1
+        break; // Opcional, mas geralmente recomendado
+    case (m.lenght - 1):
+        // Código a ser executado se expressao for igual a valor1
+        break; // Opcional, mas geralmente recomendado
+	
+
+#############################################################################
+Se a linha = (.length -1);
+Temos 3 possibilidades de posições:
+	
+	vértice E;
+	vértice D;
+	entre os vértices
+	
+1 -	O número estará no vértice E, se coluna = 0
+2 -	O número estará no vértice D, se coluna = (.lenght - 1)
+3 -	O número estará entre os vértices E e D, se coluna > 0 e < (.lenght - 1)
+
+
+
+
+Se a linha > 0 e < (.lenght - 1);
+Temos 1 possibilidade de posição:
+	
+	fora das extremidades da matriz
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

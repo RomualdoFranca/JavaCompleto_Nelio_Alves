@@ -88,18 +88,97 @@ public final class MatrizUtils {
 		sc.nextLine();
 		return num;
 	}
-	
+
 	public static boolean verificaExistenciaNumero(int num, boolean hasNumero, int[][] matriz) {
-		
+
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
-				
+
 				if (matriz[i][j] == num) {
 					return hasNumero = true;
 				}
 			}
 		}
 		return hasNumero = false;
+	}
+
+	// MÉTODOS QUE RETORNAM OS NÚMEROS CONTÍGUOS A UM NÚMERO ESCOLHIDO
+	//OBS: O número escolhido deve ocorrer apenas 1 VEZ
+
+	public static int[] retornaNumerosVizinhosTopo(int[][] matriz, int linha, int coluna) {
+
+		int ultimaLinhaColuna = matriz.length - 1;
+		// valor booleano indicando que o numero esta entre os vertices
+//		boolean entreVertices = coluna > 0 && coluna < ultimaLinhaColuna;
+
+		if (coluna == 0) {
+			// o numero não tem numeros acima e a esquerda
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz[i].length; j++) {
+					int vizinhoDireita = matriz[0][1];
+					int vizinhoAbaixo = matriz[1][0];
+					return new int[] { vizinhoDireita, vizinhoAbaixo };
+				}
+			}
+		} else if (coluna == ultimaLinhaColuna) {
+			// o numero não tem numeros acima e a direita
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz[i].length; j++) {
+					int vizinhoEsquerda = matriz[0][1];
+					int vizinhoAbaixo = matriz[1][ultimaLinhaColuna];
+					return new int[] { vizinhoEsquerda, vizinhoAbaixo };
+				}
+			}
+
+		} else {
+
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz[i].length; j++) {
+					int vizinhoEsquerda = matriz[0][coluna - 1];
+					int vizinhoDireita = matriz[0][coluna + 1];
+					return new int[] { vizinhoEsquerda, vizinhoDireita };
+				}
+			}
+		}
+		return null;
+	}
+
+	public static int[] retornaNumerosVizinhosBase(int[][] matriz, int linha, int coluna) {
+
+		int ultimaLinhaColuna = matriz.length - 1;
+		// valor booleano indicando que o numero esta entre os vertices
+//		boolean entreVertices = coluna > 0 && coluna < ultimaLinhaColuna;
+
+		if (coluna == 0) {
+			// o numero não tem numeros abaixo e a esquerda
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz[i].length; j++) {
+					int vizinhoDireita = matriz[ultimaLinhaColuna][1];
+					int vizinhoAcima = matriz[ultimaLinhaColuna - 1][0];
+					return new int[] { vizinhoDireita, vizinhoAcima };
+				}
+			}
+		} else if (coluna == ultimaLinhaColuna) {
+			// o numero não tem numeros acima e a direita
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz[i].length; j++) {
+					int vizinhoEsquerda = matriz[ultimaLinhaColuna][ultimaLinhaColuna - 1];
+					int vizinhoAcima = matriz[ultimaLinhaColuna - 1][ultimaLinhaColuna];
+					return new int[] { vizinhoEsquerda, vizinhoAcima };
+				}
+			}
+
+		} else {
+
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz[i].length; j++) {
+					int vizinhoEsquerda = matriz[ultimaLinhaColuna][coluna - 1];
+					int vizinhoDireita = matriz[ultimaLinhaColuna][coluna + 1];
+					return new int[] { vizinhoEsquerda, vizinhoDireita };
+				}
+			}
+		}
+		return null;
 	}
 
 	// MÉTODOS PARA LOCALIZAR ELEMENTOS
@@ -139,21 +218,21 @@ public final class MatrizUtils {
 //			System.out.println("O número não está nos extremos da matriz");
 //		}
 //	}
-	
-	
+
 	// o retorno dos indices serve para localizar o numero na matriz
-	//poderia renomear o nome do metodo para: retornaPosicaoNumero()
+	// poderia renomear o nome do metodo para: retornaPosicaoNumero()
 	public static int[] procuraNumero(int[][] matriz, int numeroPesquisado) {
 
 		int[] vect = new int[2];// o valor dos indices sao armazenados nesse vetor
-		
+
 		// para retorna a posicao é necessario verificar a existencia do numero
 		boolean temNumero = MatrizUtils.verificaExistenciaNumero(numeroPesquisado, false, matriz);
-		
+
 		if (temNumero == true) {
 
 			// os loops percorrem a matriz em busca do numero pesquisado
-			// quando o numero é encontrado, os indices da linha e colunas sao adicionados no vetor
+			// quando o numero é encontrado, os indices da linha e colunas sao adicionados
+			// no vetor
 			for (int i = 0; i < matriz.length; i++) {
 				for (int j = 0; j < matriz[i].length; j++) {
 					if (matriz[i][j] == numeroPesquisado) {
@@ -163,11 +242,11 @@ public final class MatrizUtils {
 					}
 				}
 			}
-			
+
 		} else {
 			System.out.println("Número inexistente");
 		}
-		//implementacao futura: descobrir o que retornar quando o vetor estiver vazio
+		// implementacao futura: descobrir o que retornar quando o vetor estiver vazio
 		return vect;
 	}
 
@@ -306,7 +385,6 @@ public final class MatrizUtils {
 	}
 
 	// MÉTODOS PARA PESQUISA DE VALORES
-
 
 	public static int contaFrequencia(int[][] matriz, Scanner sc) {
 

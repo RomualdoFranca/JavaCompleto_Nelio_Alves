@@ -57,6 +57,26 @@ Temos 1 possibilidade de posição:
 	
 	fora das extremidades da matriz
 	
+Métodos:
+	
+	O numero está nas extremidades entre os vertices
+	Está na primeira coluna ou na ultima
+	
+	linha > 0
+	linha < (.lenght - 1);
+	
+	coluna = 0 
+	coluna = (.lenght - 1);
+	
+	
+	O numero está fora das extremidades entre o topo e a base 
+	
+	linha > 0
+	linha < (.lenght - 1);
+	
+	coluna > 0 
+	coluna < (.lenght - 1);
+	
 
 
 

@@ -8,6 +8,8 @@ public final class MatrizUtilsRefactory {
 	private  MatrizUtilsRefactory() {
 	}
 
+	//_____________________________________________________________________//
+	//_____________________________________________________________________//
 	
 	//MÉTODOS DE CRIAÇÃO DE MATRIZES
 	
@@ -15,19 +17,83 @@ public final class MatrizUtilsRefactory {
 		int linha = 0;
 		int coluna = 0;
 		
-		try {
-			System.out.println("Digite o número de linha da matriz");
-			linha = sc.nextInt();
-			sc.nextLine();
+		boolean entradaValida = false; // flag para controlar o loop
+		
+		do {
+			try {
+				System.out.println("Digite o número de linha da matriz");
+				linha = sc.nextInt();
+				sc.nextLine();
+				
+				System.out.println("Digite o número de coluna da matriz");
+				coluna= sc.nextInt();
+				sc.nextLine();
+				entradaValida = true;
+				
+			} catch (InputMismatchException e) {
+				System.out.println("Entrada inválida");
+				sc.next();// Limpa o buffer do scanner para evitar loop infinito
+							//Consome a entrada inválida para que o scanner não tente lê-la novamente
+			}
 			
-			System.out.println("Digite o número de coluna da matriz");
-			coluna= sc.nextInt();
-			sc.nextLine();
-			
-		} catch (InputMismatchException e) {
-			System.out.println("Entrada inválida");
-		}
+		} while (!entradaValida);
+		
 		
 		return new int[] {linha, coluna};
 	}
+	
+	
+	public static void preencheMatrizNumerosSequenciais(int[][] matriz) {
+		
+	}
+	//_____________________________________________________________________//
+	//_____________________________________________________________________//
+	
+	
+	// MÉTODOS PARA IMPRESSAO DE VETORES E MATRIZES
+	
+	
+	public static void imprimeVetor(int[] vect) {
+		for (int i = 0; i < vect.length; i++) {
+			System.out.print(vect[i] + " ");
+		}
+		System.out.println();
+	}
+	
+	//_____________________________________________________________________//
+	
+	public static void imprimeMatriz(int[][] matriz) {
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				System.out.print(matriz[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

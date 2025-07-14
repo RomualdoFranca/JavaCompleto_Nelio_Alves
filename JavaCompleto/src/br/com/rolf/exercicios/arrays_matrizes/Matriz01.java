@@ -9,6 +9,12 @@ public class Matriz01 {
 		Scanner sc = new Scanner(System.in);
 		
 		int[] numeroLinhaColuna = MatrizUtilsRefactory.retornaNumeroLinhaColuna(sc);
+		MatrizUtilsRefactory.imprimeVetor(numeroLinhaColuna);
+		
+		
+		int[][] matriz01 = new int[numeroLinhaColuna[0]][numeroLinhaColuna[1]];
+		MatrizUtilsRefactory.imprimeMatriz(matriz01);
+		
 		
 		sc.close();
 	}

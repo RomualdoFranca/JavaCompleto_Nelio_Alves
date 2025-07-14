@@ -13,6 +13,13 @@ public class Matriz01 {
 		
 		
 		int[][] matriz01 = new int[numeroLinhaColuna[0]][numeroLinhaColuna[1]];
+		MatrizUtilsRefactory.preencheMatrizNumerosSequenciais(matriz01);
+		
+		MatrizUtilsRefactory.imprimeMatriz(matriz01);
+
+		System.out.println("_________________________");
+		
+		MatrizUtilsRefactory.preencheMatrizNumerosAleatorios(matriz01, 0, 9);
 		MatrizUtilsRefactory.imprimeMatriz(matriz01);
 		
 		

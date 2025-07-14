@@ -43,9 +43,6 @@ public final class MatrizUtilsRefactory {
 	}
 	
 	
-	public static void preencheMatrizNumerosSequenciais(int[][] matriz) {
-		
-	}
 	//_____________________________________________________________________//
 	//_____________________________________________________________________//
 	
@@ -71,13 +68,33 @@ public final class MatrizUtilsRefactory {
 		}
 	}
 	
+	//_____________________________________________________________________//
 	
+//	MÉTODOS PARA PREENCHER MATRIZES E VETORES
 	
+	public static void preencheMatrizNumerosSequenciais(int[][] matriz) {
+		
+		int count = 1;
+		
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				matriz[i][j] = count++;
+			}
+		}
+	}
 	
+	//_____________________________________________________________________//
 	
+	public static void preencheMatrizNumerosAleatorios(int[][] matriz, int min, int max) {
+		
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				matriz[i][j] = (int) (Math.random() * (max - min + 1) + min);
+			}
+		}
+	}
 	
-	
-	
+	//_____________________________________________________________________//
 	
 	
 	

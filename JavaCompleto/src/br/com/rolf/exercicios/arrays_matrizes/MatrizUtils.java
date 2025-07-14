@@ -103,13 +103,11 @@ public final class MatrizUtils {
 	}
 
 	// MÉTODOS QUE RETORNAM OS NÚMEROS CONTÍGUOS A UM NÚMERO ESCOLHIDO
-	//OBS: O número escolhido deve ocorrer apenas 1 VEZ
+	// OBS: O número escolhido deve ocorrer apenas 1 VEZ
 
 	public static int[] retornaNumerosVizinhosTopo(int[][] matriz, int linha, int coluna) {
 
 		int ultimaLinhaColuna = matriz.length - 1;
-		// valor booleano indicando que o numero esta entre os vertices
-//		boolean entreVertices = coluna > 0 && coluna < ultimaLinhaColuna;
 
 		if (coluna == 0) {
 			// o numero não tem numeros acima e a esquerda
@@ -131,12 +129,13 @@ public final class MatrizUtils {
 			}
 
 		} else {
-
+			// o numero não tem numero acima
 			for (int i = 0; i < matriz.length; i++) {
 				for (int j = 0; j < matriz[i].length; j++) {
 					int vizinhoEsquerda = matriz[0][coluna - 1];
 					int vizinhoDireita = matriz[0][coluna + 1];
-					return new int[] { vizinhoEsquerda, vizinhoDireita };
+					int vizinhoAbaixo = matriz[1][coluna + 1];
+					return new int[] { vizinhoEsquerda, vizinhoDireita, vizinhoAbaixo };
 				}
 			}
 		}
@@ -178,6 +177,29 @@ public final class MatrizUtils {
 				}
 			}
 		}
+		return null;
+	}
+
+	public static int[] retornaNumerosVizinhosPrimeiraColunaEntreTopoBase(int[][] matriz, int linha, int coluna) {
+
+		int ultimaLinhaColuna = matriz.length - 1;
+		// variaveis com as posições dos numeros vizinhos
+		int numeroAcima = linha - 1;
+		int numeroAbaixo = linha + 1;
+		int numeroEsquerda = coluna - 1;
+		int numeroDireita = coluna + 1;
+
+		if (coluna == 0) {
+			for (int i = 0; i < matriz.length; i++) {
+				for (int j = 0; j < matriz[i].length; j++) {
+					int vizinhoAcima = matriz[numeroAcima][0];
+					int vizinhoAbaixo = matriz[numeroAbaixo][0];
+					int vizinhoDireita = matriz[linha][numeroDireita];
+					return new int[] { vizinhoAcima, vizinhoAbaixo, vizinhoDireita, };
+				}
+			}
+		}
+
 		return null;
 	}
 

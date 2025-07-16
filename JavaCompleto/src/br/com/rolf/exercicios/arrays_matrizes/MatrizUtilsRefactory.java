@@ -25,6 +25,16 @@ public final class MatrizUtilsRefactory {
 		
 		return new int[] {linha, coluna};
 	}
+	//_____________________________________________________________________//
+	
+	public static int[][] criaMatriz() {
+		
+		int[][] matriz = null;
+		int[] numeroLinhaColuna = retornaNumeroLinhaColuna();
+		matriz = new int[numeroLinhaColuna[0]][numeroLinhaColuna[1]];
+
+		return matriz;
+	}
 
 	//_____________________________________________________________________//
 	
@@ -45,8 +55,6 @@ public final class MatrizUtilsRefactory {
 		
 		return matrizDenteada;
 	}
-	
-	
 	
 	//_____________________________________________________________________//
 	//_____________________________________________________________________//

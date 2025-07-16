@@ -3,7 +3,7 @@ package br.com.rolf.exercicios.arrays_matrizes;
 import java.util.Scanner;
 
 import br.com.rolf.utilidades.EntradaUtils;
-
+//
 public class Matriz01 {
 
 	public static void main(String[] args) {
@@ -14,12 +14,14 @@ public class Matriz01 {
 //		int[] vectLinhaColuna = new int[] {linha, coluna};
 //		MatrizUtilsRefactory.imprimeVetor(vectLinhaColuna);
 		
-		int[] numeroLinhaColuna = MatrizUtilsRefactory.retornaNumeroLinhaColuna();
-		MatrizUtilsRefactory.imprimeVetor(numeroLinhaColuna);
+//		int[] numeroLinhaColuna = MatrizUtilsRefactory.retornaNumeroLinhaColuna();
+//		MatrizUtilsRefactory.imprimeVetor(numeroLinhaColuna);
 //		
 //		
-//		int[][] matriz01 = new int[numeroLinhaColuna[0]][numeroLinhaColuna[1]];
-//		MatrizUtilsRefactory.preencheMatrizNumerosSequenciais(matriz01);
+		int[][] matriz01 = MatrizUtilsRefactory.criaMatriz();
+		MatrizUtilsRefactory.preencheMatrizNumerosSequenciais(matriz01);
+		System.out.println("Martriz com números sequenciais");
+		MatrizUtilsRefactory.imprimeMatriz(matriz01);
 //		
 //		MatrizUtilsRefactory.imprimeMatriz(matriz01);
 //
@@ -30,8 +32,8 @@ public class Matriz01 {
 		System.out.println("_________________________");
 		
 		
-		int[][] matrizDenteada = MatrizUtilsRefactory.criaMatrizDenteada();
-		MatrizUtilsRefactory.imprimeMatriz(matrizDenteada);
+//		int[][] matrizDenteada = MatrizUtilsRefactory.criaMatrizDenteada();
+//		MatrizUtilsRefactory.imprimeMatriz(matrizDenteada);
 		
 		//fim da aplicação
 		EntradaUtils.fecharScanner();

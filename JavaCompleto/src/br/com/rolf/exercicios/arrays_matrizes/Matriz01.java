@@ -15,7 +15,14 @@ public class Matriz01 {
 		
 		int[] indices = MatrizUtilsRefactory.retornaIndices(matriz01);
 		System.out.println("O número pesquisado se encontra na\nlinha: " +
-				(indices[0] + 1) + "\ncoluna:  " + (indices[1] + 1));
+				(indices[0]) + "\ncoluna:  " + (indices[1]));
+		
+		
+		
+		int[] numerosVizinhos = MatrizUtilsRefactory.retornaNumerosVizinhos(matriz01,
+				indices[0], indices[1]);
+		
+		System.out.println("Numero: " + numerosVizinhos[0] + "\nNumero: " + numerosVizinhos[1]);
 //		
 //		MatrizUtilsRefactory.imprimeMatriz(matriz01);
 //

@@ -35,6 +35,19 @@ public class PesquisasMatriz {
 
 	}
 	
+	//retorna vizinhos numero do vertice esquerdo no topo da matriz
+	
+	public static int[] retornaNumerosVizinhosVerticeEsquerdoTopo(int[][] matriz, int linha, int coluna) {
+		int[] numVizinhos = null;
+		
+		if (linha + coluna == 0) {
+			numVizinhos = new int[matriz[linha + 1][coluna]];
+			numVizinhos = new int[matriz[linha][coluna + 1]];
+		}
+		
+		return numVizinhos;
+	}
+	
 	public static void escolheMetodo(int[][] matriz, int numeroPesquisado) {
 		
 		int[] indices = retornaIndices(matriz, numeroPesquisado);

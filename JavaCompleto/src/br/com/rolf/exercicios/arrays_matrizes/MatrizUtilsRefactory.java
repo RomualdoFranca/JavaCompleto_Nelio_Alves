@@ -59,9 +59,8 @@ public final class MatrizUtilsRefactory {
 	//_____________________________________________________________________//
 	//_____________________________________________________________________//
 	
+	
 	//MÉTODOS DE PESQUISA
-	
-	
 	
 	public static int[] retornaIndices(int[][] matriz) {
 		
@@ -78,10 +77,27 @@ public final class MatrizUtilsRefactory {
 		}
 
 		return indices;
-		
 	}
+	//_____________________________________________________________________//
 	
 	
+	
+	public static int[] retornaNumerosVizinhos(int[][] matriz, int linha, int coluna) {
+		int[] numVizinhos = new int[2];
+		int ultimaLinhaColuna = matriz.length - 1;
+		
+		//numero pesquisado esta no vertice superior esquerdo
+		if (linha + coluna == 0) {
+			numVizinhos[0] = matriz[linha + 1][coluna];//vizinho abaixo
+			numVizinhos[1] = matriz[linha][coluna + 1];//vizinho a direita
+		//o numero pesquisado esta no vertice superior direito
+		}else if (linha + coluna == coluna) {
+			numVizinhos[0] = matriz[linha][coluna - 1];//vizinho
+			numVizinhos[1] = matriz[linha + 1][coluna];
+		}
+
+		return numVizinhos;
+	}
 	
 	
 	

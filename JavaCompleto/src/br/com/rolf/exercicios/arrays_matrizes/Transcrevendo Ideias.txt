@@ -26,15 +26,7 @@ Fora das extremidades
 
 
 *******************************************************
-if(linha == 0) {
-	
-	switch (coluna) {
-    case 0:
-        // Código a ser executado se expressao for igual a valor1
-        break; // Opcional, mas geralmente recomendado
-    case (m.lenght - 1):
-        // Código a ser executado se expressao for igual a valor1
-        break; // Opcional, mas geralmente recomendado
+
 	
 
 #############################################################################
@@ -62,11 +54,11 @@ Métodos:
 	O numero está nas extremidades entre os vertices
 	Está na primeira coluna ou na ultima
 	
-	linha > 0
-	linha < (.lenght - 1);
+	linha > 0; não tem numero Acima
+	linha < (.lenght - 1); não tem numero Abaixo
 	
-	coluna = 0 
-	coluna = (.lenght - 1);
+	coluna = 0, não tem numero E
+	coluna = (.lenght - 1); não tem numero D
 	
 	
 	O numero está fora das extremidades entre o topo e a base 
@@ -79,8 +71,40 @@ Métodos:
 	
 
 
+A partir dos indices do numero pesquisado:
 
 
+	linha > 0; não tem numero Acima
+	linha < (.lenght - 1); não tem numero Abaixo
+	
+	coluna = 0, não tem numero E
+	coluna = (.lenght - 1); não tem numero D
+	
+	Os valores de linha e coluna não podem ser negativos
+	
+	Se o valor for < 0, ignorar o valor.
+	Cada número vizinho tem 2 indices
+	O loop deve percorrer a matriz em busca de numeros que tem as seguintes coordenadas
+	
+	linhaNumeroPesquisado - 1 = vizinho acima
+	linhaNumeroPesquisado + 1 = vizinho abaixo
+	
+	colunaNumeroPesquisado - 1 = vizinho esquerda
+	colunaNumeroPesquisado + 1 = vizinho direita
+	
+	adiciona as coordenadas de cada numero em uma matriz
+	
+	1  2  3 
+	4 (5) 6 
+	7  8  9 
+	
+	Número máximo de vizinhos = 4
+	Número máximo de coordenadas = 8
+	
+	O número de coordenadas de todos os numeros de uma matriz = 2*(linha * coluna)
+	O numero de linhas de uma matriz que armazena as coordenadas = (2*(linha * coluna)) / 2
+	
+	Armazenar as coordenadas numa matriz4x2
 
 
 

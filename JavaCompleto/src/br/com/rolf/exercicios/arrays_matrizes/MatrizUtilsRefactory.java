@@ -3,6 +3,8 @@ package br.com.rolf.exercicios.arrays_matrizes;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import br.com.rolf.utilidades.EntradaUtils;
+
 public final class MatrizUtilsRefactory {
 	
 	private  MatrizUtilsRefactory() {
@@ -11,33 +13,15 @@ public final class MatrizUtilsRefactory {
 	//_____________________________________________________________________//
 	//_____________________________________________________________________//
 	
+	
+
+	
 	//MÉTODOS DE CRIAÇÃO DE MATRIZES
 	
-	public static int[] retornaNumeroLinhaColuna(Scanner sc) {
-		int linha = 0;
-		int coluna = 0;
+	public static int[] retornaNumeroLinhaColuna() {
 		
-		boolean entradaValida = false; // flag para controlar o loop
-		
-		do {
-			try {
-				System.out.println("Digite o número de linha da matriz");
-				linha = sc.nextInt();
-				sc.nextLine();
-				
-				System.out.println("Digite o número de coluna da matriz");
-				coluna= sc.nextInt();
-				sc.nextLine();
-				entradaValida = true;
-				
-			} catch (InputMismatchException e) {
-				System.out.println("Entrada inválida");
-				sc.next();// Limpa o buffer do scanner para evitar loop infinito
-							//Consome a entrada inválida para que o scanner não tente lê-la novamente
-			}
-			
-		} while (!entradaValida);
-		
+		int linha = EntradaUtils.lerInteiro("Digite o número de linha da matriz");
+		int coluna = EntradaUtils.lerInteiro("Digite o número de coluna da matriz");
 		
 		return new int[] {linha, coluna};
 	}

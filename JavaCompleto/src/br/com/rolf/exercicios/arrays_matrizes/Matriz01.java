@@ -8,20 +8,14 @@ public class Matriz01 {
 
 	public static void main(String[] args) {
 
-		
-//		int linha = EntradaUtils.lerInteiro("Digite o números de linha");
-//		int coluna= EntradaUtils.lerInteiro("Digite o números de coluna");
-//		int[] vectLinhaColuna = new int[] {linha, coluna};
-//		MatrizUtilsRefactory.imprimeVetor(vectLinhaColuna);
-		
-//		int[] numeroLinhaColuna = MatrizUtilsRefactory.retornaNumeroLinhaColuna();
-//		MatrizUtilsRefactory.imprimeVetor(numeroLinhaColuna);
-//		
-//		
 		int[][] matriz01 = MatrizUtilsRefactory.criaMatriz();
 		MatrizUtilsRefactory.preencheMatrizNumerosSequenciais(matriz01);
 		System.out.println("Martriz com números sequenciais");
 		MatrizUtilsRefactory.imprimeMatriz(matriz01);
+		
+		int[] indices = MatrizUtilsRefactory.retornaIndices(matriz01);
+		System.out.println("O número pesquisado se encontra na\nlinha: " +
+				(indices[0] + 1) + "\ncoluna:  " + (indices[1] + 1));
 //		
 //		MatrizUtilsRefactory.imprimeMatriz(matriz01);
 //

@@ -59,6 +59,31 @@ public final class MatrizUtilsRefactory {
 	//_____________________________________________________________________//
 	//_____________________________________________________________________//
 	
+	//MÉTODOS DE PESQUISA
+	
+	
+	
+	public static int[] retornaIndices(int[][] matriz) {
+		
+		int numeroPesquisado = EntradaUtils.lerInteiro("Digite o número para pesquisa");
+		int[] indices = new int [2];
+		
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				if (matriz[i][j] == numeroPesquisado) {
+					indices[0] = i;
+					indices[1] = j;
+				}
+			}
+		}
+
+		return indices;
+		
+	}
+	
+	
+	
+	
 	
 	// MÉTODOS PARA IMPRESSAO DE VETORES E MATRIZES
 	

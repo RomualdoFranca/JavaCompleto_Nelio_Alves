@@ -17,6 +17,7 @@ public class EntradaUtils {
 			try {
 				
 				numero = sc.nextInt();
+				sc.nextLine();
 				entradavalida = true;
 				
 			} catch (InputMismatchException e) {

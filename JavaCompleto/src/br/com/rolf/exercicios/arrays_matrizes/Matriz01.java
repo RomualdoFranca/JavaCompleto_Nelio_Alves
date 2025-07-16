@@ -30,8 +30,8 @@ public class Matriz01 {
 		System.out.println("_________________________");
 		
 		
-//		int[][] matrizDenteada = MatrizUtilsRefactory.criaMatrizDenteada(sc);
-//		MatrizUtilsRefactory.imprimeMatriz(matrizDenteada);
+		int[][] matrizDenteada = MatrizUtilsRefactory.criaMatrizDenteada();
+		MatrizUtilsRefactory.imprimeMatriz(matrizDenteada);
 		
 		//fim da aplicação
 		EntradaUtils.fecharScanner();

@@ -47,6 +47,7 @@ public final class MatrizUtilsRefactory {
 	public static int[][] criaMatrizDenteada(Scanner sc) {
 		
 		boolean validaEntrada = false;
+		int[][] matrizDenteada = null;
 		
 		do {
 			
@@ -55,32 +56,24 @@ public final class MatrizUtilsRefactory {
 				int linha = sc.nextInt();
 				sc.nextLine();
 				
+				matrizDenteada = new int[linha][];
 				int coluna = 0;
-				int[][] matrizDenteada = new int[linha][];
 				
 				for (int i = 0; i < matrizDenteada.length; i++) {
-					for (int j = 0; j < matrizDenteada[i].length; j++) {
 						System.out.println("Digite o número de coluna");
 						coluna = sc.nextInt();
 						sc.nextLine();
-						
-					}
+						matrizDenteada[i] = new int[coluna];
 				}
-				
-				
-				
-				
-				
-				
 				
 				validaEntrada = true;
 			} catch (InputMismatchException e) {
 				sc.next();
 				System.out.println("Entrada inválida");
-				// TODO: handle exception
 			}
 			
 		} while (!validaEntrada);
+		return matrizDenteada;
 	}
 	
 	

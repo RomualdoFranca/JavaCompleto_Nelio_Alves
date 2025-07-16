@@ -8,19 +8,23 @@ public class Matriz01 {
 
 		Scanner sc = new Scanner(System.in);
 		
-		int[] numeroLinhaColuna = MatrizUtilsRefactory.retornaNumeroLinhaColuna(sc);
-		MatrizUtilsRefactory.imprimeVetor(numeroLinhaColuna);
-		
-		
-		int[][] matriz01 = new int[numeroLinhaColuna[0]][numeroLinhaColuna[1]];
-		MatrizUtilsRefactory.preencheMatrizNumerosSequenciais(matriz01);
-		
-		MatrizUtilsRefactory.imprimeMatriz(matriz01);
-
+//		int[] numeroLinhaColuna = MatrizUtilsRefactory.retornaNumeroLinhaColuna(sc);
+//		MatrizUtilsRefactory.imprimeVetor(numeroLinhaColuna);
+//		
+//		
+//		int[][] matriz01 = new int[numeroLinhaColuna[0]][numeroLinhaColuna[1]];
+//		MatrizUtilsRefactory.preencheMatrizNumerosSequenciais(matriz01);
+//		
+//		MatrizUtilsRefactory.imprimeMatriz(matriz01);
+//
+//		System.out.println("_________________________");
+//		
+//		MatrizUtilsRefactory.preencheMatrizNumerosAleatorios(matriz01, 0, 9);
+//		MatrizUtilsRefactory.imprimeMatriz(matriz01);
 		System.out.println("_________________________");
 		
-		MatrizUtilsRefactory.preencheMatrizNumerosAleatorios(matriz01, 0, 9);
-		MatrizUtilsRefactory.imprimeMatriz(matriz01);
+		int[][] matrizDenteada = MatrizUtilsRefactory.criaMatrizDenteada(sc);
+		MatrizUtilsRefactory.imprimeMatriz(matrizDenteada);
 		
 		
 		sc.close();

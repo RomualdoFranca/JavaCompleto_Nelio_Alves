@@ -82,7 +82,7 @@ public final class MatrizUtilsRefactory {
 	
 	
 	
-	public static int[] retornaNumerosVizinhos(int[][] matriz, int linha, int coluna) {
+	public static int[] retornaNumerosVizinhosVertices(int[][] matriz, int linha, int coluna) {
 		int[] numVizinhos = new int[4];
 		int ultimaLinhaColuna = matriz.length - 1;
 		

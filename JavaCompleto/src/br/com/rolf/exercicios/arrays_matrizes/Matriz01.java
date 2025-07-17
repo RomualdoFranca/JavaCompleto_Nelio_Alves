@@ -19,7 +19,7 @@ public class Matriz01 {
 		
 		
 		
-		int[] numerosVizinhos = MatrizUtilsRefactory.retornaNumerosVizinhos(matriz01,
+		int[] numerosVizinhos = MatrizUtilsRefactory.retornaNumerosVizinhosVertices(matriz01,
 				indices[0], indices[1]);
 		
 		System.out.println("Numero: " + numerosVizinhos[0] + "\nNumero: " + numerosVizinhos[1]);

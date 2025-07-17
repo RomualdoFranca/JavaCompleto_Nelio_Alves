@@ -38,20 +38,20 @@ public class EntradaUtils {
 		return numero;
 	}
 	
-	// Valida entrada linha e coluna
-	public static void validaEntradaLinhaColuna(int linha, int coluna) {
-		boolean validaEntrada = false;
-		
-		do {
-			
-			if (linha < 0 || coluna < 0) {
-				System.out.println("Os números não podem ser negativos");
-				System.out.println("Digite um valor positivo.");
-			}
-			
-		} while (validaEntrada);
-		
-	}
+//	// Valida entrada linha e coluna
+//	public static void validaEntradaLinhaColuna(int linha, int coluna) {
+//		boolean validaEntrada = false;
+//		
+//		do {
+//			
+//			if (linha < 0 || coluna < 0) {
+//				System.out.println("Os números não podem ser negativos");
+//				System.out.println("Digite um valor positivo.");
+//			}
+//			
+//		} while (validaEntrada);
+//		
+//	}
 	
 	public static void fecharScanner() {
 		if (sc != null) {

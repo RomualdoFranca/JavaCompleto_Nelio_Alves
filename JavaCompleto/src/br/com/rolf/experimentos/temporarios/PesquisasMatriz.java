@@ -21,7 +21,8 @@ public class PesquisasMatriz {
 		System.out.println("O número pesquisado se encontra na\nlinha: " +
 				(indices[0]) + "\ncoluna:  " + (indices[1]));
 		
-		int[] numerosVizinhos = retornaNumerosVizinhos(m, indices[0], indices[1]);
+//		int[] numerosVizinhos = MatrizUtilsRefactory.retornaNumerosVizinhosVertices(m,indices[0], indices[1]);
+		int[] vizinhosBordaSuperior = retornaVizinhosBordas(m, indices[0], indices[1]);
 		
 //		EntradaUtils.lerVizinhos("""
 //				
@@ -35,65 +36,61 @@ public class PesquisasMatriz {
 
 	}//fim do metodo main
 	
-	public static int[] retornaNumerosVizinhos(int[][] matriz, int linha, int coluna) {
-		int[] numVizinhos = new int[4];
-		int ultimaLinhaColuna = matriz.length - 1;
+	public static int[] retornaVizinhosBordas(int[][] matriz, int linha, int coluna) {
 		
-		int numMaxCol = 0;
-		//loops para retornar o número máximo de colunas
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz[i].length; j++) {
-				numMaxCol++;
-			}
-			break; // interrompe o loop interno depois do primeiro ciclo
-		}
+		int[] numVizinho = new int[4];
+		int numMaxCol = matriz[0].length;
 		
-		//numero pesquisado esta no vertice superior esquerdo
-		if (linha + coluna == 0) {
-			numVizinhos[0] = matriz[linha + 1][coluna];//vizinho abaixo
-			numVizinhos[1] = matriz[linha][coluna + 1];//vizinho a direita
-//			EntradaUtils.lerVizinhos(" Número Abaixo: %d\nNúmero à Direita: %d", numVizinhos[0], numVizinhos[1]);
+		boolean bordaSuperior = linha == 0 && (coluna < numMaxCol && coluna > 0);
+		boolean bordaInferior = linha == matriz.length - 1 && (coluna < numMaxCol && coluna > 0);
+		boolean bordaEsquerda = (linha < matriz.length -1 && linha > 0) && coluna == 0;
+		boolean bordaDireita  = (linha < matriz.length -1 && linha > 0) && coluna < numMaxCol;
+		
+		if (bordaSuperior) {
+			numVizinho[0] = matriz[linha][coluna - 1];// esquerda
+			numVizinho[1] = matriz[linha][coluna + 1];//direita
+			numVizinho[2] = matriz[linha + 1][coluna];//abaixo
 			
 			EntradaUtils.lerVizinhos("""
-					Vizinho Abaixo: %d
+					Vizinho Esquerda: %d
 					Vizinho à Direita: %d
-					""".formatted(numVizinhos[0], numVizinhos[1]));
-			
-		//o numero pesquisado esta no vertice superior direito
-		}else if (linha + coluna == coluna) {
-			numVizinhos[0] = matriz[linha][coluna - 1];//vizinho esquerda
-			numVizinhos[1] = matriz[linha + 1][coluna];//vizinho abaixo
+					Vizinho Abaixo: %d
+					""".formatted(numVizinho[0], numVizinho[1], numVizinho[2]));
+		}else if (bordaInferior) {
+			numVizinho[0] = matriz[linha][coluna - 1];// esquerda
+			numVizinho[1] = matriz[linha][coluna + 1];//direita
+			numVizinho[2] = matriz[linha - 1][coluna];//acima
 			
 			EntradaUtils.lerVizinhos("""
-					Vizinho à Esquerda: %d
-					Vizinho Abaixo: %d
-					""".formatted(numVizinhos[0], numVizinhos[1]));
-			
-		// o numero pesquisado esta no vertice inferior esquerdo
-		}else if (linha + coluna == linha) {
-			numVizinhos[0] = matriz[linha -1 ][coluna];//vizinho acima
-			numVizinhos[1] = matriz[linha][coluna + 1];//vizinho a direita
+					Vizinho Esquerda: %d
+					Vizinho à Direita: %d
+					Vizinho Acima: %d
+					""".formatted(numVizinho[0], numVizinho[1], numVizinho[2]));
+		}else if (bordaEsquerda) {
+			numVizinho[0] = matriz[linha - 1][coluna];//acima
+			numVizinho[1] = matriz[linha + 1][coluna];//abaixo
+			numVizinho[2] = matriz[linha][coluna + 1];//direita
 			
 			EntradaUtils.lerVizinhos("""
 					Vizinho Acima: %d
+					Vizinho Abaixo: %d
 					Vizinho à Direita: %d
-					""".formatted(numVizinhos[0], numVizinhos[1]));
-			
-		// o numero pesquisado esta no vertice inferior direito
-		}else if (linha == ultimaLinhaColuna && coluna == numMaxCol - 1 ) {
-			numVizinhos[0] = matriz[linha - 1][coluna];//vizinho acima
-			numVizinhos[1] = matriz[linha][coluna - 1];//vizinho a esquerda
+					""".formatted(numVizinho[0], numVizinho[1], numVizinho[2]));
+		}else if (bordaDireita) {
+			numVizinho[0] = matriz[linha - 1][coluna];//acima
+			numVizinho[1] = matriz[linha + 1][coluna];//abaixo
+			numVizinho[2] = matriz[linha][coluna - 1];//esquerda
 			
 			EntradaUtils.lerVizinhos("""
 					Vizinho Acima: %d
+					Vizinho Abaixo: %d
 					Vizinho à Esquerda: %d
-					""".formatted(numVizinhos[0], numVizinhos[1]));
-			
+					""".formatted(numVizinho[0], numVizinho[1], numVizinho[2]));
 		}
-
-		return numVizinhos;
+		
+		
+		return numVizinho;
 	}
-	
 	
 	
 	//retorna vizinhos numero do vertice esquerdo no topo da matriz

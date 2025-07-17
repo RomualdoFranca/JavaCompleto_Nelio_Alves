@@ -23,6 +23,7 @@ public class Matriz01 {
 				indices[0], indices[1]);
 		
 		System.out.println("Numero: " + numerosVizinhos[0] + "\nNumero: " + numerosVizinhos[1]);
+		System.out.println("Tamanho da matriz: " + matriz01.length);
 //		
 //		MatrizUtilsRefactory.imprimeMatriz(matriz01);
 //

@@ -7,6 +7,14 @@ public class EntradaUtils {
 	
 	private static Scanner sc = new Scanner(System.in);
 	
+	
+	public static void lerVizinhos(String msg) {
+		System.out.println(msg);
+//		msg = """
+//				
+//				""";
+	}
+	
 	public static int lerInteiro(String mensagem) {
 		
 		int numero = 0;

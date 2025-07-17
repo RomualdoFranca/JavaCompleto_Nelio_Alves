@@ -87,13 +87,13 @@ public final class MatrizUtilsRefactory {
 		int ultimaLinhaColuna = matriz.length - 1;
 		
 		int numMaxCol = 0;
+		//loops para retornar o número máximo de colunas
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
 				numMaxCol++;
 			}
 			break; // interrompe o loop interno depois do primeiro ciclo
 		}
-		
 		
 		//numero pesquisado esta no vertice superior esquerdo
 		if (linha + coluna == 0) {
@@ -114,7 +114,6 @@ public final class MatrizUtilsRefactory {
 		}else if (linha == ultimaLinhaColuna && coluna == numMaxCol - 1 ) {
 			numVizinhos[0] = matriz[linha - 1][coluna];//vizinho acima
 			numVizinhos[1] = matriz[linha][coluna - 1];//vizinho a esquerda
-			
 			
 		}
 

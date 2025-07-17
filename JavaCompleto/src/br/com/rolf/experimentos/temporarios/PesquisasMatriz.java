@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 import br.com.rolf.exercicios.arrays_matrizes.MatrizUtils;
+import br.com.rolf.exercicios.arrays_matrizes.MatrizUtilsRefactory;
+import br.com.rolf.utilidades.EntradaUtils;
 
 public class PesquisasMatriz {
 
@@ -11,29 +13,88 @@ public class PesquisasMatriz {
 
 		Scanner sc = new Scanner(System.in);
 
-		int[][] m = MatrizUtils.criaMatrizRetangular(sc);
-		MatrizUtils.insereNumerosSequenciais(m, sc);
-//		MatrizUtils.imprimeSaida(m);
-
-//		MatrizUtils.insereNumerosAleatorios(m);
+		int[][] m = MatrizUtilsRefactory.criaMatriz();
+		MatrizUtilsRefactory.preencheMatrizNumerosSequenciais(m);
 		MatrizUtils.imprimeSaida(m);
-
-		int num = selecionaNumero(sc);
-		int[] indices = retornaIndices(m, num);
-		System.out.print(indices[0] + ", " + indices[1] + "\n");
-
-		escolheMetodo(m, num);
+		int[] indices = MatrizUtilsRefactory.retornaIndices(m);
 		
-//		int[] numerosContiguos = retornaNumerosVizinhosVerticeEsquerdoTopo(m);
-//		System.out.println("Numero à direita: " + numerosContiguos[0] + "\nNúmero abaixo: " + numerosContiguos[1]);
+		System.out.println("O número pesquisado se encontra na\nlinha: " +
+				(indices[0]) + "\ncoluna:  " + (indices[1]));
+		
+		int[] numerosVizinhos = retornaNumerosVizinhos(m, indices[0], indices[1]);
+		
+//		EntradaUtils.lerVizinhos("""
+//				
+//				""".formatted(args));
+		
+//		MatrizUtils.insereNumerosAleatorios(m);
 
-//		estaNoVertice(m, indices[0], indices[1]);
 
-//		MatrizUtils.estaNoVertice(m, sc);
 
 		sc.close();
 
+	}//fim do metodo main
+	
+	public static int[] retornaNumerosVizinhos(int[][] matriz, int linha, int coluna) {
+		int[] numVizinhos = new int[4];
+		int ultimaLinhaColuna = matriz.length - 1;
+		
+		int numMaxCol = 0;
+		//loops para retornar o número máximo de colunas
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				numMaxCol++;
+			}
+			break; // interrompe o loop interno depois do primeiro ciclo
+		}
+		
+		//numero pesquisado esta no vertice superior esquerdo
+		if (linha + coluna == 0) {
+			numVizinhos[0] = matriz[linha + 1][coluna];//vizinho abaixo
+			numVizinhos[1] = matriz[linha][coluna + 1];//vizinho a direita
+//			EntradaUtils.lerVizinhos(" Número Abaixo: %d\nNúmero à Direita: %d", numVizinhos[0], numVizinhos[1]);
+			
+			EntradaUtils.lerVizinhos("""
+					Vizinho Abaixo: %d
+					Vizinho à Direita: %d
+					""".formatted(numVizinhos[0], numVizinhos[1]));
+			
+		//o numero pesquisado esta no vertice superior direito
+		}else if (linha + coluna == coluna) {
+			numVizinhos[0] = matriz[linha][coluna - 1];//vizinho esquerda
+			numVizinhos[1] = matriz[linha + 1][coluna];//vizinho abaixo
+			
+			EntradaUtils.lerVizinhos("""
+					Vizinho à Esquerda: %d
+					Vizinho Abaixo: %d
+					""".formatted(numVizinhos[0], numVizinhos[1]));
+			
+		// o numero pesquisado esta no vertice inferior esquerdo
+		}else if (linha + coluna == linha) {
+			numVizinhos[0] = matriz[linha -1 ][coluna];//vizinho acima
+			numVizinhos[1] = matriz[linha][coluna + 1];//vizinho a direita
+			
+			EntradaUtils.lerVizinhos("""
+					Vizinho Acima: %d
+					Vizinho à Direita: %d
+					""".formatted(numVizinhos[0], numVizinhos[1]));
+			
+		// o numero pesquisado esta no vertice inferior direito
+		}else if (linha == ultimaLinhaColuna && coluna == numMaxCol - 1 ) {
+			numVizinhos[0] = matriz[linha - 1][coluna];//vizinho acima
+			numVizinhos[1] = matriz[linha][coluna - 1];//vizinho a esquerda
+			
+			EntradaUtils.lerVizinhos("""
+					Vizinho Acima: %d
+					Vizinho à Esquerda: %d
+					""".formatted(numVizinhos[0], numVizinhos[1]));
+			
+		}
+
+		return numVizinhos;
 	}
+	
+	
 	
 	//retorna vizinhos numero do vertice esquerdo no topo da matriz
 	

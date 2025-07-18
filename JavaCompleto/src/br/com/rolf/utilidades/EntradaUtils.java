@@ -10,9 +10,7 @@ public class EntradaUtils {
 	
 	public static void lerVizinhos(String msg) {
 		System.out.println(msg);
-//		msg = """
-//				
-//				""";
+
 	}
 	
 	public static int lerInteiro(String mensagem) {

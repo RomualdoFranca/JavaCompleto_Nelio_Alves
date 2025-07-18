@@ -148,7 +148,7 @@ public final class MatrizUtilsRefactory {
 		boolean bordaSuperior = linha == 0 && (coluna < numMaxCol && coluna > 0);
 		boolean bordaInferior = linha == matriz.length - 1 && (coluna < numMaxCol && coluna > 0);
 		boolean bordaEsquerda = (linha < matriz.length - 1 && linha > 0) && coluna == 0;
-		boolean bordaDireita = (linha < matriz.length - 1 && linha > 0) && coluna < numMaxCol;
+		boolean bordaDireita = (linha < matriz.length - 1 && linha > 0) && coluna == numMaxCol -1;
 
 		if (bordaSuperior) {
 			numVizinho[0] = matriz[linha][coluna - 1];// esquerda
@@ -198,8 +198,32 @@ public final class MatrizUtilsRefactory {
 
 		return numVizinho;
 	}
-	// _____________________________________________________________________//
 
+	// _____________________________________________________________________//
+	
+	public static int[] retornaVizinhosCentro(int[][] matriz, int linha, int coluna) {
+
+		int[] numVizinho = new int[4];
+		int numMaxCol = matriz[0].length;
+
+		numVizinho[0] = matriz[linha - 1][coluna];// numero acima
+		numVizinho[1] = matriz[linha + 1][coluna];// numero abaixo
+		numVizinho[2] = matriz[linha][coluna + 1];// numero a direita
+		numVizinho[3] = matriz[linha][coluna - 1];// numero a esquerda
+
+		EntradaUtils.lerVizinhos("""
+				Número pesquisado está fora das bordas e dos vértices da matriz
+				Número acima: %d
+				Número abaixo: %d
+				Número à direita: %d
+				Número à esquerda: %d
+
+				""".formatted(numVizinho[0], numVizinho[1], numVizinho[2], numVizinho[3]));
+
+		return numVizinho;
+	}
+
+	// _____________________________________________________________________//
 	public static void retornaVizinhos(int[][] matriz, int linha, int coluna) {
 
 		int numMaxCol = matriz[0].length;
@@ -210,15 +234,20 @@ public final class MatrizUtilsRefactory {
 		boolean numeroBordas = (linha == 0 && (coluna < numMaxCol && coluna > 0) // borda superior
 				|| linha == matriz.length - 1 && (coluna < numMaxCol && coluna > 0)// borda inferior
 				|| (linha < matriz.length - 1 && linha > 0) && coluna == 0 // borda esquerda
-				|| (linha < matriz.length - 1 && linha > 0) && coluna < numMaxCol); // borda direita
+				|| (linha < matriz.length - 1 && linha > 0) && coluna == numMaxCol - 1); // borda direita
 
 		if (numeroVertices) {
-			MatrizUtilsRefactory.retornaNumerosVizinhosVertices(matriz, linha, coluna);
+			retornaNumerosVizinhosVertices(matriz, linha, coluna);
 		} else if (numeroBordas) {
-			MatrizUtilsRefactory.retornaVizinhosBordas(matriz, linha, coluna);
+			retornaVizinhosBordas(matriz, linha, coluna);
+		}else {
+			retornaVizinhosCentro(matriz, linha, coluna);
 		}
 
 	}
+	// _____________________________________________________________________//
+	
+	
 
 	// _____________________________________________________________________//
 

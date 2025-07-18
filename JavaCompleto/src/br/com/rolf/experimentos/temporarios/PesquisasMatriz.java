@@ -17,7 +17,7 @@ public class PesquisasMatriz {
 		MatrizUtilsRefactory.preencheMatrizNumerosAleatorios(m, 1, 9);
 		
 		MatrizUtils.imprimeSaida(m);
-		int[] indices = retornaIndices(m);
+		int[] indices = retornaIndicesENumeroPesquisado(m);
 
 		System.out.println("O número pesquisado se encontra na\nlinha: " + (indices[0]) + "\ncoluna:  " + (indices[1]));
 		System.out.println("matriz.lenght: " + m.length);
@@ -38,7 +38,6 @@ public class PesquisasMatriz {
 
 		int count = 0;
 		
-		
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz.length; j++) {
 				if (matriz[i][j] == numPesquisado) {
@@ -50,7 +49,8 @@ public class PesquisasMatriz {
 		return count;
 	}
 	
-	public static int[] retornaIndices(int[][] matriz) {
+	
+	public static int[] retornaIndicesENumeroPesquisado(int[][] matriz) {
 
 		int numeroPesquisado = EntradaUtils.lerInteiro("Digite o número para pesquisa");
 		int[] indices = new int[3];

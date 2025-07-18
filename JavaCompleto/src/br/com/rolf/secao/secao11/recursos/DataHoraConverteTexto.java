@@ -35,6 +35,7 @@ public class DataHoraConverteTexto {
 		System.out.println("date02 = " + date02.format(fmt2));
 		//o Instant não tem o metodo .format(), a unica forma de chamar esse metodo é atravez do DateTimeFormatter
 		System.out.println("date03 = " + fmt3.format(date03));//imprime o horario equivalente ao horario local
+		
 		System.out.println("Imprime usando padrões prontos");
 		System.out.println("date02 = " + date02.format(fmt4));
 		System.out.println("date03 = " + fmt5.format(date03));

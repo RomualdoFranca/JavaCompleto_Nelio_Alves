@@ -3,6 +3,8 @@ package br.com.rolf.secao.secao10;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Lista01 {
 
@@ -53,17 +55,28 @@ public class Lista01 {
 		stg.add("abacate");
 		stg.add("cajú");
 		stg.add("biribiri");
+		
+		//posicao de um elemento
+		System.out.println("Posicao de um elemento: " + stg.indexOf("damasco"));
+		
 		//removendo da lista elemento que atenda a um predicado
 		stg.removeIf(nome -> nome.charAt(0) == 'a');
 		
+		//quando o elemento nao é encontrado, o retorno é igual a -1
+		System.out.println("Buscando um elemento que não está na lista: " + stg.indexOf("amora"));
+
+		//filtrando elementos usando predicado
+		List<String> result = stg.stream().filter(nome -> nome.charAt(0) == 'c').collect(Collectors.toList());
+		
+		//encontrando elemento da lista que atenda a um certo predicado
+		String name = stg.stream().filter(nome -> nome.charAt(0) == 'd').findFirst().orElse(null);
+		System.out.println(name);
+		
+		
 		//imprimindo os elementos da lista
-		for (String s : stg) {
+		for (String s : result) {
 			System.out.print(s + " ");
 		}
-		System.out.println();
-		
-		
-		
 		System.out.println();
 		
 		//tamanho da lista

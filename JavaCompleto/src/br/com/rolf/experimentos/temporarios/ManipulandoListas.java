@@ -66,6 +66,7 @@ public class ManipulandoListas {
 		return listaNomes;
 	}
 
+
 	// *******************************************\\
 	// imprime listas
 	public static void imprimeListaInteiros(List<Integer> lista) {

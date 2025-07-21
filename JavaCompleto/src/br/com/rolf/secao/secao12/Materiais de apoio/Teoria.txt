@@ -1,0 +1,9 @@
+Ciclo de vida de pedido de clientes
+	
+	1 aguardando pagamento
+	2 processando
+	3 enviado
+	4 entregue
+	
+Para representar esses estados de uma forma semanticamente boa pra que fique facil do programador
+trabalhar, usa-se enumerações Enum

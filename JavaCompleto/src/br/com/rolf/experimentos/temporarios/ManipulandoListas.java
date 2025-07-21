@@ -16,7 +16,7 @@ public class ManipulandoListas {
 		imprimeListaInteiros(numeros);
 		
 		List<String> nomes = new ArrayList<String>();
-		adicionaNomes(nomes, 4, sc);
+		adicionaNomes(nomes, 2, sc);
 		imprimeListaString(nomes);
 		
 		System.out.println("Adicionando mais elementos");
@@ -38,11 +38,17 @@ public class ManipulandoListas {
 
 	}// fim do main
 
+	//metodo utilzando Generics
+	public static <T> void adicionaElementoGenerico(List<T> lista, T elemento) {
+		lista.add(elemento);
+	}
+	
 	// adicionando elementos na lista
 	public static List<Integer> adicionaInteiros(List<Integer> lista) {
 
 		for (int i = 0; i < 10; i++) {
-			lista.add(i);
+//			lista.add(i);
+			adicionaElementoGenerico(lista, i);
 		}
 		return lista;
 	}
@@ -53,7 +59,8 @@ public class ManipulandoListas {
 		for(int i = 0; i < numeroElementos; i++) {
 			System.out.println("Digite um nome:");
 			nomes = sc.next();
-			listaNomes.add(nomes);
+//			listaNomes.add(nomes);
+			adicionaElementoGenerico(listaNomes, nomes);
 		}
 		
 		return listaNomes;

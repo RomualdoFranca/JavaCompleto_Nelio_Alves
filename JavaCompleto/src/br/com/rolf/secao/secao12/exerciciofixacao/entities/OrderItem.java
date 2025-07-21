@@ -42,7 +42,7 @@ public class OrderItem {
 		sb.append("Order items: \n");
 		sb.append(products.getName() + ", " +
 		"Quantity: " + quantity +
-		", " + "Subtotal: " + String.format("$%.2f",products.getPrice()));
+		", " + "Subtotal: " + String.format("$%.2f",subTotal()));
 		
 		return sb.toString();
 	}

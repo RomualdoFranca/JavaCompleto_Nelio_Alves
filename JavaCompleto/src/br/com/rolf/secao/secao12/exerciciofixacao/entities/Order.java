@@ -3,6 +3,7 @@ package br.com.rolf.secao.secao12.exerciciofixacao.entities;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import br.com.rolf.secao.secao12.entities.enums.OrderStatus;
 
@@ -57,5 +58,7 @@ public class Order {
 	public void removeItem(OrderItem itens) {
 		item.remove(itens);
 	}
+	
+	
 
 }

@@ -35,6 +35,18 @@ public class Client {
 		return birthDate;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
+	}
+
 	public void clienteData(Scanner sc) throws ParseException {
 		System.out.println("Enter cliente data:");
 		System.out.print("Name: ");
@@ -74,10 +86,10 @@ public class Client {
 		//formatação da API java.time
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		StringBuilder sb = new StringBuilder();
-		sb.append("Name: " + name + "\n");
-		sb.append("Email: " + email + "\n");
-//		sb.append("Birth date (DD/MM/YYYY): " + sdf.format(birthDate) + "\n");
-		sb.append("Birth date (DD/MM/YYYY): " + birthDate.format(dtf) + "\n");
+		sb.append("Client: " + name + "(" + birthDate.format(dtf) + ") - " + email);
+//		sb.append("Email: " + email + "\n");
+////		sb.append("Birth date (DD/MM/YYYY): " + sdf.format(birthDate) + "\n");
+//		sb.append("Birth date (DD/MM/YYYY): " + birthDate.format(dtf) + "\n");
 		
 		return sb.toString();
 	}

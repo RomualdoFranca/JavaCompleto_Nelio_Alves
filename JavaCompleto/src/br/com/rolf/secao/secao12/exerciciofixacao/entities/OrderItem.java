@@ -1,19 +1,21 @@
 package br.com.rolf.secao.secao12.exerciciofixacao.entities;
 
+import java.util.Scanner;
+
 public class OrderItem {
 	private int quantity;
 	private double price;
 
-	private Product products;
+	private Product product;
 
 	public OrderItem() {
 
 	}
 
-	public OrderItem(int quantity, double price, Product products) {
+	public OrderItem(int quantity, double price, Product product) {
 		this.quantity = quantity;
 		this.price = price;
-		this.products = products;
+		this.product = product;
 	}
 
 	public int getQuantity() {
@@ -25,19 +27,19 @@ public class OrderItem {
 	}
 
 	public Product getProducts() {
-		return products;
+		return product;
 	}
 
 	public double subTotal() {
 		return quantity * price;
 	}
-
+	
 	@Override
 	public String toString() {
 
 		StringBuilder sb = new StringBuilder();
 		sb.append("Order items: \n");
-		sb.append(products.getName() + ", " + "Quantity: " + quantity + ", " + "Subtotal: "
+		sb.append(product.getName() + ", " + "Quantity: " + quantity + ", " + "Subtotal: "
 				+ String.format("$%.2f", subTotal()));
 
 		return sb.toString();

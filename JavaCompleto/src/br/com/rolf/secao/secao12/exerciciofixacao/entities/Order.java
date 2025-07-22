@@ -11,15 +11,17 @@ public class Order {
 	private Date moment;
 	private OrderStatus status;
 
+	private Client client;
 	private List<OrderItem> item = new ArrayList<>();
 
 	public Order() {
 
 	}
 
-	public Order(Date moment, OrderStatus status) {
+	public Order(Date moment, OrderStatus status, Client client) {
 		this.moment = moment;
 		this.status = status;
+		this.client = client;
 	}
 
 	public Date getMoment() {
@@ -42,6 +44,10 @@ public class Order {
 		return item;
 	}
 
+	public Client getClient() {
+		return client;
+	}
+
 	// atentar para o nome no parametro não ser igual ao nome da lista
 	public void addItem(OrderItem itens) {
 		item.add(itens);
@@ -51,14 +57,5 @@ public class Order {
 	public void removeItem(OrderItem itens) {
 		item.remove(itens);
 	}
-
-
-
-
-
-
-
-
-
 
 }

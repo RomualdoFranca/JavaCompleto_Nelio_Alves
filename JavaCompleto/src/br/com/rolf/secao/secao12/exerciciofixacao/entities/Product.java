@@ -8,8 +8,10 @@ public class Product {
 		
 	}
 
-	public Product(String name, double price) {
+	public Product(String name) {
 		this.name = name;
+	}
+	public Product(double price) {
 		this.price = price;
 	}
 

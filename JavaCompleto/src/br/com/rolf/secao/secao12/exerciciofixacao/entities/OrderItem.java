@@ -33,7 +33,20 @@ public class OrderItem {
 	public double subTotal() {
 		return quantity * price;
 	}
+
 	
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
 	@Override
 	public String toString() {
 

@@ -86,7 +86,7 @@ public class Client {
 		//formatação da API java.time
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		StringBuilder sb = new StringBuilder();
-		sb.append("Client: " + name + "(" + birthDate.format(dtf) + ") - " + email);
+		sb.append("Client: " + name + " (" + birthDate.format(dtf) + ") - " + email);
 //		sb.append("Email: " + email + "\n");
 ////		sb.append("Birth date (DD/MM/YYYY): " + sdf.format(birthDate) + "\n");
 //		sb.append("Birth date (DD/MM/YYYY): " + birthDate.format(dtf) + "\n");

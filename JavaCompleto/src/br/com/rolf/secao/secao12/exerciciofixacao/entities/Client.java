@@ -2,21 +2,22 @@ package br.com.rolf.secao.secao12.exerciciofixacao.entities;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.Formatter;
 import java.util.Scanner;
 
 public class Client {
 
 	private String name;
 	private String email;
-	private Date birthDate;
+	private LocalDate birthDate;
 	
 	public Client() {
 		
 	}
 
-	public Client(String name, String email, Date birthDate) {
+	public Client(String name, String email, LocalDate birthDate) {
 		this.name = name;
 		this.email = email;
 		this.birthDate = birthDate;
@@ -30,7 +31,7 @@ public class Client {
 		return email;
 	}
 
-	public Date getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
@@ -45,25 +46,38 @@ public class Client {
 		System.out.print("Birth date: (DD/MM/YYYY): " );
 		String dataInput = sc.nextLine();
 		
-		birthDate = converteData(dataInput);
+		birthDate = converteData2(dataInput);
 		
 	}
 	
 	public Date converteData(String date) throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		Date stringParaDate = sdf.parse(date);
+		Date stringParaDate = sdf.parse(date);//parseando uma string para um local date
 		return stringParaDate;
 	
 	}
+	
+	public LocalDate converteData2(String date) {
+		//define padrao de formatação
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		//converte de string para LocalDate
+		LocalDate localdate = LocalDate.parse(date, dtf);
+		return localdate;
+	}
 
+	//metodo para depuração
 	@Override
 	public String toString() {
+		//formatação antiga do Date
+//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		//formatação da API java.time
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		StringBuilder sb = new StringBuilder();
 		sb.append("Name: " + name + "\n");
 		sb.append("Email: " + email + "\n");
-		sb.append("Birth date (DD/MM/YYYY): " + sdf.format(birthDate) + "\n");
+//		sb.append("Birth date (DD/MM/YYYY): " + sdf.format(birthDate) + "\n");
+		sb.append("Birth date (DD/MM/YYYY): " + birthDate.format(dtf) + "\n");
 		
 		return sb.toString();
 	}

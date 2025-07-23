@@ -11,34 +11,24 @@ public class Program {
 
 		Scanner sc = new Scanner(System.in);
 
-		Product p2 = new Product();
-//		createProduct(sc, p2);
-		
-		OrderItem orderItem1 = new OrderItem();
-		createOrderItems(sc, orderItem1, p2);
-		
-//		System.out.println(p2.getName());
-		
-		System.out.println(orderItem1);
-
-		System.out.println("\nInstanciando um objeto cliente\n");
-		Client client01 = new Client();
-		createDataClient(sc, client01);
-		System.out.println(client01);
+		System.out.println("Instanciando um objeto Product");
+		Product p1 = createProduct(sc);
+		System.out.println(p1);
 
 		sc.close();
 
 	}
 	
-	public static void createProduct(Scanner sc, Product product) {
-		System.out.println("Product name: ");
-		product.setName(sc.nextLine());
-		System.out.println("Product price: ");
-		product.setPrice(sc.nextDouble());
+	public static Product createProduct(Scanner sc) {
+		System.out.print("Product name: ");
+		String name = sc.nextLine();
+		System.out.print("Product price: ");
+		double price = sc.nextDouble();
 		
+		return new Product(name, price);
 	}
 
-	public static void createOrderItems(Scanner sc, OrderItem item, Product product) {
+	public static void readOrderItems(Scanner sc, OrderItem item, Product product) {
 		System.out.println("Enter order data:");
 		System.out.println("How many items to this order?");
 		int numberItems = sc.nextInt();

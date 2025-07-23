@@ -12,12 +12,17 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Instanciando um objeto Product");
-//		Product p1 = createProduct(sc);
-//		System.out.println(p1);
+		Product p1 = createProduct(sc);
+		System.out.println(p1);
 
 		System.out.println("\nInstanciando um objeto Client");
 		Client c1 = createClient(sc);
 		System.out.println(c1);
+		
+		System.out.println("\nInstanciando um objeto OrderItem");
+		OrderItem orderItem1 = createOrderItems(sc, p1);
+		System.out.println(orderItem1);
+		
 		sc.close();
 
 	}
@@ -27,36 +32,44 @@ public class Program {
 		String name = sc.nextLine();
 		System.out.print("Product price: ");
 		double price = sc.nextDouble();
-		
+		sc.nextLine();
 		return new Product(name, price);
 	}
 
 	//metodo para instanciar um objeto do tipo client
 	public static Client createClient(Scanner sc) {
 		System.out.println("Enter data client");
-		System.out.println("Name: ");
+		System.out.print("Name: ");
 		String name = sc.nextLine();
 
-		System.out.println("Email: ");
+		System.out.print("Email: ");
 		String email = sc.nextLine();
 
-		System.out.println("Birth date (DD/MM/YYYY): ");
+		System.out.print("Birth date (DD/MM/YYYY): ");
 		String date = sc.nextLine();
 		LocalDate localDate = convertDate(date);
 		
 		return new Client(name, email, localDate);
 	}
 	//metodo para instanciar um objeto do tipo orderItems
-	public static OrderItem createOrderItems(Scanner sc) {
+	public static OrderItem createOrderItems(Scanner sc, Product product) {
 		System.out.println("Enter order data:");
-		System.out.println("How many items to this order?");
-		int numberItems = sc.nextInt();
+		System.out.print("How many items to this order?");
+		var numberItems = sc.nextInt();
 		sc.nextLine();
+		//essa variavel recebe o valor do produto que foi atribuido na criacao do objeto Product
+		var price = product.getPrice();
+		var quantity = 0;
 		
 		for (int i = 1; i <= numberItems; i++) {
-			System.out.println("Enter #" + i + " item data");
+			System.out.println("Enter °" + i + " item data");
+			System.out.print("Quantity: ");
+			quantity = sc.nextInt();
+			sc.nextLine();
+
 			
 		}
+		return new OrderItem(quantity, price, product);
 		
 	}
 	

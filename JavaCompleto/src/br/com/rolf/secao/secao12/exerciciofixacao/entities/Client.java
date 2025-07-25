@@ -47,51 +47,6 @@ public class Client {
 		this.birthDate = birthDate;
 	}
 
-	// metodo para instanciar um objeto do tipo client
-	public Client createClient(Scanner sc) {
-		System.out.println("Enter data client");
-		System.out.print("Name: ");
-		name = sc.nextLine();
-
-		System.out.print("Email: ");
-		email = sc.nextLine();
-
-		System.out.print("Birth date (DD/MM/YYYY): ");
-		String date = sc.nextLine();
-		birthDate = converteData2(date);
-
-		return new Client(name, email, birthDate);
-	}
-
-	public void clienteData(Scanner sc) throws ParseException {
-		System.out.println("Enter cliente data:");
-		System.out.print("Name: ");
-		name = sc.nextLine();
-
-		System.out.print("Email: ");
-		email = sc.nextLine();
-
-		System.out.print("Birth date: (DD/MM/YYYY): ");
-		String dataInput = sc.nextLine();
-
-		birthDate = converteData2(dataInput);
-
-	}
-
-	public Date converteData(String date) throws ParseException {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		Date stringParaDate = sdf.parse(date);// parseando uma string para um local date
-		return stringParaDate;
-
-	}
-
-	public LocalDate converteData2(String date) {
-		// define padrao de formatação
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		// converte de string para LocalDate
-		LocalDate localdate = LocalDate.parse(date, dtf);
-		return localdate;
-	}
 
 	// metodo para depuração
 	@Override

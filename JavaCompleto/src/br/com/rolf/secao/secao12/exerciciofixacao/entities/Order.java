@@ -1,5 +1,7 @@
 package br.com.rolf.secao.secao12.exerciciofixacao.entities;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,7 +11,7 @@ import br.com.rolf.secao.secao12.entities.enums.OrderStatus;
 
 public class Order {
 
-	private Date moment;
+	private LocalDateTime moment;
 	private OrderStatus status;
 
 	private Client client;
@@ -19,17 +21,17 @@ public class Order {
 
 	}
 
-	public Order(Date moment, OrderStatus status, Client client) {
+	public Order(LocalDateTime moment, OrderStatus status, Client client) {
 		this.moment = moment;
 		this.status = status;
 		this.client = client;
 	}
 
-	public Date getMoment() {
+	public LocalDateTime getMoment() {
 		return moment;
 	}
 
-	public void setMoment(Date moment) {
+	public void setMoment(LocalDateTime moment) {
 		this.moment = moment;
 	}
 
@@ -58,25 +60,20 @@ public class Order {
 	public void removeItem(OrderItem itens) {
 		item.remove(itens);
 	}
-	
-	public Order createOrder(Scanner sc) {
-		System.out.println("Enter order data:");
-		System.out.println("Status: \nOptions: PENDING_PAYMENT, " + "PROCESSING, " + "SHIPPED, " + "DELIVERED");
-		String statusString = sc.nextLine();
-		//convertendo string para enum
-		OrderStatus status = OrderStatus.valueOf(statusString.toUpperCase());//converte o input em maiuscula
-		this.status = status;
-		
-		System.out.print("How many items to this order?");
-		var numberItems = sc.nextInt();
-		sc.nextLine();
-		
-		for (int i = 0; i <= numberItems; i++) {
-			
-		}
-		
+
+	@Override
+	public String toString() {
+
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		StringBuilder sb = new StringBuilder();
+		sb.append("ORDER SUMMARY:\n");
+		sb.append("Order moment: " + dtf.format(moment) + "\n");
+		sb.append("Order status: " + status + "\n");
+		sb.append("Client: " + client.getName() + " (" + client.getBirthDate().format(dtf2) + ") - " + client.getEmail()
+				+ "\n");
+		return sb.toString();
+
 	}
-	
-	
 
 }

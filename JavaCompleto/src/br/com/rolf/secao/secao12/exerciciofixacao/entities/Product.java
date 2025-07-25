@@ -1,5 +1,7 @@
 package br.com.rolf.secao.secao12.exerciciofixacao.entities;
 
+import java.util.Scanner;
+
 public class Product {
 	private String name;
 	private double price;
@@ -28,7 +30,7 @@ public class Product {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

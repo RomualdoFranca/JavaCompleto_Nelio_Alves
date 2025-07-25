@@ -3,9 +3,8 @@ package br.com.rolf.secao.secao12.exerciciofixacao.entities;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Locale;
 
 import br.com.rolf.secao.secao12.entities.enums.OrderStatus;
 
@@ -15,7 +14,7 @@ public class Order {
 	private OrderStatus status;
 
 	private Client client;
-	private List<OrderItem> item = new ArrayList<>();
+	private List<OrderItem> items = new ArrayList<>();
 
 	public Order() {
 
@@ -43,8 +42,8 @@ public class Order {
 		this.status = status;
 	}
 
-	public List<OrderItem> getOrderStatus() {
-		return item;
+	public List<OrderItem> getItem() {
+		return items;
 	}
 
 	public Client getClient() {
@@ -53,12 +52,12 @@ public class Order {
 
 	// atentar para o nome no parametro não ser igual ao nome da lista
 	public void addItem(OrderItem itens) {
-		item.add(itens);
+		items.add(itens);
 
 	}
 
 	public void removeItem(OrderItem itens) {
-		item.remove(itens);
+		items.remove(itens);
 	}
 
 	@Override
@@ -72,8 +71,21 @@ public class Order {
 		sb.append("Order status: " + status + "\n");
 		sb.append("Client: " + client.getName() + " (" + client.getBirthDate().format(dtf2) + ") - " + client.getEmail()
 				+ "\n");
+		
+		sb.append("Order items:\n");
+        for (OrderItem item : items) {
+            sb.append(item.getProducts().getName()) // Acessa o nome do produto via OrderItem
+              .append(", $").append(String.format(Locale.US, "%.2f", item.getPrice())) // Preço do OrderItem
+              .append(", Quantity: ").append(item.getQuantity())
+              .append(", Subtotal: $").append(String.format(Locale.US, "%.2f", item.subTotal()))
+              .append("\n");
+        }
+		
+//		sb.append("Order items: \n");
+//		sb.append(product.getName() + ", " + product.getPrice() + "Quantity: " + orderItem.getQuantity() + ", "
+//				+ "Subtotal: " + String.format("$%.2f", orderItem.subTotal()));
 		return sb.toString();
-
+		
 	}
 
 }

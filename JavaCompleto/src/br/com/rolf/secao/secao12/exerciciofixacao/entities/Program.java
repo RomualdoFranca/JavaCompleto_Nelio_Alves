@@ -20,30 +20,35 @@ public class Program {
 		System.out.println("\nInstanciando um objeto Client");
 		Client c1 = createClient(sc);
 //		System.out.println(c1);
+//
+//		System.out.println("Instanciando objetos Product");
+//		Product p1 = createProduct(sc);
+////		System.out.println(p1);
 
-		System.out.println("Instanciando objetos Product");
-		Product p1 = new Product();
-//		System.out.println(p1);
-
-		System.out.println("\nInstanciando um objeto OrderItem");
+//		System.out.println("\nInstanciando um objeto OrderItem");
 
 //		OrderItem od1 = createOrderItem(sc, p1);
 //		System.out.println(od1);
 
 		System.out.println("Enter order data:");
 		Order order01 = createOrderData(sc, c1);
+//		order01.addItem(od1);
+//		System.out.println(order01.getItem());
 		
 		System.out.println("How many items to this order?");
 		int itemQuantity = sc.nextInt();
 		sc.nextLine();
 		
 		for (int i = 1; i <= itemQuantity; i++) {
-			createProduct(sc);
-			OrderItem orderItem =createOrderItem(sc, p1);
+			Product product = createProduct(sc);
+			OrderItem orderItem =createOrderItem(sc, product);
 			order01.addItem(orderItem);
+		
 		}
 		System.out.println("toString da classe Order");
 		System.out.println(order01.toString());;
+		
+		
 		
 		
 		
@@ -57,7 +62,6 @@ public class Program {
 	// Métodos para a classe Client
 
 	public static Client createClient(Scanner sc) {
-		System.out.println("Enter data client");
 		System.out.print("Name: ");
 		String name = sc.nextLine();
 

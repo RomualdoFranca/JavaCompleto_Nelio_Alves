@@ -59,6 +59,24 @@ public class Order {
 		item.remove(itens);
 	}
 	
+	public Order createOrder(Scanner sc) {
+		System.out.println("Enter order data:");
+		System.out.println("Status: \nOptions: PENDING_PAYMENT, " + "PROCESSING, " + "SHIPPED, " + "DELIVERED");
+		String statusString = sc.nextLine();
+		//convertendo string para enum
+		OrderStatus status = OrderStatus.valueOf(statusString.toUpperCase());//converte o input em maiuscula
+		this.status = status;
+		
+		System.out.print("How many items to this order?");
+		var numberItems = sc.nextInt();
+		sc.nextLine();
+		
+		for (int i = 0; i <= numberItems; i++) {
+			
+		}
+		
+	}
+	
 	
 
 }

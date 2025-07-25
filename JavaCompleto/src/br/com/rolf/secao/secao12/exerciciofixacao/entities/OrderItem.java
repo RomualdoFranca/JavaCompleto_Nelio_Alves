@@ -47,6 +47,15 @@ public class OrderItem {
 		this.product = product;
 	}
 
+	public OrderItem createOrderItem(Scanner sc) {
+		price = product.getPrice();
+		System.out.print("Quantity: ");
+		quantity = sc.nextInt();
+		sc.nextLine();
+		
+		return new OrderItem(quantity, price, product);
+	}
+	
 	@Override
 	public String toString() {
 

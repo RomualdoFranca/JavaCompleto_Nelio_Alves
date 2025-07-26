@@ -61,7 +61,7 @@ public class Client {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Client name: " + name );
 		sb.append(", Email: " + email);
-		sb.append(", Birth date: (" + dateFormatted + ")" );
+		sb.append(", Birth date: (" + dateFormatted  + ")" );
 		return sb.toString();
 	}
 	

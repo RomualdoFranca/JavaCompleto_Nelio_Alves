@@ -31,7 +31,7 @@ public class Product {
 	public String printDebugging() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Nome do produto: " + name + "\n");
-		sb.append("Preço do produto: " + String.format("%.2f", price) + "\n");
+//		sb.append("Preço do produto: " + String.format("%.2f", price) + "\n");
 		return sb.toString();
 		
 	}

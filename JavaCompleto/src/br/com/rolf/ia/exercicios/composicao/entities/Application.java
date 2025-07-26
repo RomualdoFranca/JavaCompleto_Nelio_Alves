@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class PrograminComposition {
+public class Application {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -14,6 +14,9 @@ public class PrograminComposition {
 		
 		Product p1 = createProduct(sc);
 		System.out.println(p1.printDebugging());
+		
+		OrderItem order1 = createOrderItem(sc, p1);
+		System.out.println(order1.printDebugging());
 	
 		
 		sc.close();
@@ -61,6 +64,15 @@ public class PrograminComposition {
 		
 		return new Product(nameProduct, price);
 	
+	}
+	
+	public static OrderItem createOrderItem(Scanner sc, Product product) {
+		System.out.println("Quantidade: ");
+		int quantidade = sc.nextInt();
+		sc.nextLine();
+		
+		
+		return new OrderItem(quantidade, product.getPrice());
 	}
 	
 	

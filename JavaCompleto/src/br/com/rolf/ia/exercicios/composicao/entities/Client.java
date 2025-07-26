@@ -57,11 +57,11 @@ public class Client {
     // Pode ser removido ou comentado
 	
 	public String printDebuggin() {
-		String dateFormatted = PrograminComposition.formatDate(birthDate);
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		StringBuilder sb = new StringBuilder();
 		sb.append("Client name: " + name );
 		sb.append(", Email: " + email);
-		sb.append(", Birth date: (" + dateFormatted  + ")" );
+		sb.append(", Birth date: (" + dtf.format(birthDate)  + ")" );
 		return sb.toString();
 	}
 	

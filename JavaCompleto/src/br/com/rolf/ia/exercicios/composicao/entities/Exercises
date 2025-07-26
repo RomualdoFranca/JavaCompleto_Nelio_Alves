@@ -1,0 +1,267 @@
+Exercício 1: Criação de Pedido Básico
+
+Objetivo: Praticar a criação de objetos e a composição simples.
+
+Descrição: Crie um programa Java que simule a entrada de dados para um pedido com um único item.
+
+Entrada de Dados:
+
+    Cliente:
+
+        Nome: "Maria Silva"
+
+        Email: "maria.silva@email.com"
+
+        Data de Nascimento (DD/MM/AAAA): "10/05/1990"
+
+    Pedido:
+
+        Status: "PENDING_PAYMENT"
+
+    Item do Pedido:
+
+        Nome do Produto: "Notebook"
+
+        Preço do Produto: 3500.00
+
+        Quantidade: 1
+
+Saída Esperada (formato similar ao exemplo):
+
+ORDER SUMMARY:
+Order moment: [Data e Hora Atual]
+Order status: PENDING_PAYMENT
+Client: Maria Silva (10/05/1990) - maria.silva@email.com
+Order items:
+Notebook, $3500.00, Quantity: 1, Subtotal: $3500.00
+Total price: $3500.00
+
+----------------------------------------------------------------------------------------------
+Exercício 2: Pedido com Múltiplos Itens e Atualização de Status
+
+Objetivo: Reforçar a composição com múltiplos itens e a manipulação do status do pedido.
+
+Descrição: Crie um programa Java que permita adicionar vários itens a um pedido e, em seguida, mude o status do pedido.
+
+Entrada de Dados Inicial:
+
+    Cliente:
+
+        Nome: "Carlos Eduardo"
+
+        Email: "carlos.eduardo@email.com"
+
+        Data de Nascimento (DD/MM/AAAA): "22/11/1980"
+
+    Pedido:
+
+        Status: "PROCESSING"
+
+    Itens do Pedido:
+
+        Item 1:
+
+            Nome do Produto: "Teclado Mecânico"
+
+            Preço do Produto: 250.00
+
+            Quantidade: 1
+
+        Item 2:
+
+            Nome do Produto: "Mouse Gamer"
+
+            Preço do Produto: 120.00
+
+            Quantidade: 2
+
+        Item 3:
+
+            Nome do Produto: "Monitor 27 polegadas"
+
+            Preço do Produto: 1500.00
+
+            Quantidade: 1
+
+Ações Adicionais:
+
+    Após a criação do pedido, mude o status do pedido para "SHIPPED".
+
+Saída Esperada (formato similar ao exemplo):
+
+ORDER SUMMARY:
+Order moment: [Data e Hora Atual]
+Order status: SHIPPED
+Client: Carlos Eduardo (22/11/1980) - carlos.eduardo@email.com
+Order items:
+Teclado Mecânico, $250.00, Quantity: 1, Subtotal: $250.00
+Mouse Gamer, $120.00, Quantity: 2, Subtotal: $240.00
+Monitor 27 polegadas, $1500.00, Quantity: 1, Subtotal: $1500.00
+Total price: $1990.00
+
+
+-----------------------------------------------------------------------------------------------------------
+Exercício 3: Remoção de Itens do Pedido
+
+Objetivo: Praticar a remoção de objetos componentes de um objeto composto.
+
+Descrição: Crie um programa Java onde você cria um pedido com múltiplos itens e, em seguida, remove um dos itens antes de exibir o resumo final.
+
+Entrada de Dados Inicial:
+
+    Cliente:
+
+        Nome: "Ana Paula"
+
+        Email: "ana.paula@email.com"
+
+        Data de Nascimento (DD/MM/AAAA): "01/01/1995"
+
+    Pedido:
+
+        Status: "PENDING_PAYMENT"
+
+    Itens do Pedido:
+
+        Item 1:
+
+            Nome do Produto: "Fone de Ouvido"
+
+            Preço do Produto: 180.00
+
+            Quantidade: 1
+
+        Item 2:
+
+            Nome do Produto: "Câmera Digital"
+
+            Preço do Produto: 900.00
+
+            Quantidade: 1
+
+        Item 3:
+
+            Nome do Produto: "Cartão de Memória"
+
+            Preço do Produto: 50.00
+
+            Quantidade: 2
+
+Ações Adicionais:
+
+    Remova o "Cartão de Memória" do pedido.
+
+Saída Esperada (formato similar ao exemplo):
+
+ORDER SUMMARY:
+Order moment: [Data e Hora Atual]
+Order status: PENDING_PAYMENT
+Client: Ana Paula (01/01/1995) - ana.paula@email.com
+Order items:
+Fone de Ouvido, $180.00, Quantity: 1, Subtotal: $180.00
+Câmera Digital, $900.00, Quantity: 1, Subtotal: $900.00
+Total price: $1080.00
+
+
+
+-----------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------
+
+
+Exercício 4: Cenário Completo com Entrada Interativa (Opcional)
+
+Objetivo: Integrar a entrada de dados do usuário com a criação e manipulação de objetos.
+
+Descrição: Crie um programa Java que interaja com o usuário para coletar todas as informações do cliente, pedido e itens do pedido (assim como na imagem de entrada). O programa deve então exibir o resumo do pedido.
+
+Funcionalidades:
+
+    Solicitar o nome, email e data de nascimento do cliente.
+
+    Solicitar o status do pedido (permitir que o usuário escolha entre as opções do OrderStatus enum).
+
+    Perguntar quantos itens o usuário deseja adicionar ao pedido.
+
+    Para cada item, solicitar o nome do produto, preço e quantidade.
+
+    Calcular e exibir o subtotal de cada item e o total geral do pedido.
+
+Observação: Este exercício é mais complexo, pois envolve a leitura de entrada do console (usando Scanner em Java).
+
+Exemplo de Interação (saída esperada do programa):
+
+Enter cliente data:
+Name: [usuário digita]
+Email: [usuário digita]
+Birth date (DD/MM/YYYY): [usuário digita]
+Enter order data:
+Status (PENDING_PAYMENT/PROCESSING/SHIPPED/DELIVERED): [usuário digita]
+How many items to this order? [usuário digita]
+Enter #1 item data:
+Product name: [usuário digita]
+Product price: [usuário digita]
+Quantity: [usuário digita]
+Enter #2 item data:
+Product name: [usuário digita]
+Product price: [usuário digita]
+Quantity: [usuário digita]
+...
+ORDER SUMMARY:
+Order moment: [Data e Hora Atual]
+Order status: [Status digitado]
+Client: [Dados do cliente digitados]
+Order items:
+[Itens do pedido com subtotal]
+Total price: [Total calculado]
+
+
+
+-----------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------
+Exercício 5: Validação e Tratamento de Erros (Avançado)
+
+Objetivo: Introduzir conceitos de validação de entrada e tratamento de erros, tornando o sistema mais robusto.
+
+Descrição: Aprimore o Exercício 4 adicionando validações para as entradas do usuário.
+
+Regras de Validação:
+
+    Nome do Cliente: Não pode ser vazio.
+
+    Email do Cliente: Deve conter "@" e "." (validação simplificada).
+
+    Data de Nascimento: Deve estar no formato DD/MM/YYYY e ser uma data válida (ex: 31/02/2025 é inválido).
+
+    Status do Pedido: Deve corresponder a um dos valores do OrderStatus enum (ignorar maiúsculas/minúsculas).
+
+    Preço do Produto: Deve ser um número positivo.
+
+    Quantidade: Deve ser um número inteiro positivo.
+
+Ações em Caso de Erro:
+
+    Se uma entrada for inválida, o programa deve informar o erro ao usuário e solicitar a entrada novamente até que seja válida.
+
+Exemplo de Interação (saída esperada do programa com erros):
+
+Enter cliente data:
+Name: 
+Error: Name cannot be empty. Please enter a valid name: [usuário digita]
+Email: abc.com
+Error: Invalid email format. Please enter a valid email: [usuário digita]
+Birth date (DD/MM/YYYY): 31/02/1990
+Error: Invalid date. Please enter a valid date (DD/MM/YYYY): [usuário digita]
+Enter order data:
+Status (PENDING_PAYMENT/PROCESSING/SHIPPED/DELIVERED): INVALID_STATUS
+Error: Invalid status. Please choose from PENDING_PAYMENT, PROCESSING, SHIPPED, DELIVERED: [usuário digita]
+How many items to this order? 0
+Error: Number of items must be positive. Please enter a valid number: [usuário digita]
+Enter #1 item data:
+Product name: TV
+Product price: -100.00
+Error: Product price must be positive. Please enter a valid price: [usuário digita]
+Quantity: 0
+Error: Quantity must be positive. Please enter a valid quantity: [usuário digita]
+...

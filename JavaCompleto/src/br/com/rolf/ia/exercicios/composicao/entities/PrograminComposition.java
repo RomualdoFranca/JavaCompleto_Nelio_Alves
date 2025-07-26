@@ -9,8 +9,11 @@ public class PrograminComposition {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		Client client1 = createClient(sc);
-		System.out.println(client1.printDebuggin());;
+//		Client client1 = createClient(sc);
+//		System.out.println(client1.printDebuggin());
+		
+		Product p1 = createProduct(sc);
+		System.out.println(p1.printDebugging());
 	
 		
 		sc.close();
@@ -44,10 +47,22 @@ public class PrograminComposition {
 		System.out.print("Birth date: ");
 		LocalDate date = convertDate(sc.nextLine());
 		
-		
 		return new Client(name, email, date);
 		
 	}
+	
+	public static Product createProduct(Scanner sc){
+		System.out.println("Product name: ");
+		String nameProduct = sc.nextLine();
+	
+		System.out.println("Produc price: ");
+		double price = sc.nextDouble();
+		sc.nextLine();
+		
+		return new Product(nameProduct, price);
+	
+	}
+	
 	
 	
 	

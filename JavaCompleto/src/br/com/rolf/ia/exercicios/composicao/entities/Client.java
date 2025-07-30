@@ -58,7 +58,7 @@ public class Client {
 	
 	public String printDebuggin() {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder();  
 		sb.append("Client name: " + name );
 		sb.append(", Email: " + email);
 		sb.append(", Birth date: (" + dtf.format(birthDate)  + ")" );
